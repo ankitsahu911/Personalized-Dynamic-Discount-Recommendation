@@ -44,6 +44,7 @@ def test_app_smoke_page_navigation():
         "🔮 Market Sensitivity & What-If Lab",
         "🛡️ Margin Guardrails Studio",
         "📊 Policy Performance & ROI Audits",
+        "📘 Knowledge Blog & Architecture",
         "ℹ️ Model Architecture & Transparency",
     ]
     for page in pages:
