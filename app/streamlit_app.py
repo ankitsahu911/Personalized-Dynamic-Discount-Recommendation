@@ -4,6 +4,7 @@ Streamlit Web Application — Amazon SmartBiz E-Commerce Portal
 UI ONLY: Layout, widgets, and charts. All business math is delegated to app/recommender.py.
 """
 
+import html
 import json
 import os
 import sys
@@ -127,30 +128,38 @@ st.markdown(
         line-height: 1.6 !important;
     }
 
-    /* 4. SIDEBAR INPUTS & BUTTONS (LARGER, HIGH READABILITY) */
+    /* 4. SIDEBAR MERCHANDISING CONTROLS (LARGE, CLEAR, HIGH READABILITY) */
     [data-testid="stSidebar"] {
         background-color: #F8FAFC !important;
         border-right: 1px solid #E2E8F0 !important;
+        min-width: 325px !important;
     }
     [data-testid="stSidebar"] label p,
     [data-testid="stSidebar"] label div,
     [data-testid="stSidebar"] label span {
-        font-size: 1.05rem !important;
+        font-size: 1.12rem !important;
         font-weight: 700 !important;
-        color: #0F172A !important;
+        color: #0C232A !important;
+        margin-bottom: 3px !important;
     }
     [data-testid="stSidebar"] input,
     [data-testid="stSidebar"] select,
     [data-testid="stSidebar"] .stSelectbox {
-        font-size: 1.05rem !important;
-        font-weight: 500 !important;
-        border-radius: 8px !important;
+        font-size: 1.10rem !important;
+        font-weight: 600 !important;
+        height: 46px !important;
+        border-radius: 9px !important;
     }
     [data-testid="stSidebar"] button {
-        font-size: 1.05rem !important;
+        font-size: 1.10rem !important;
         font-weight: 700 !important;
-        padding: 10px 18px !important;
+        padding: 11px 18px !important;
         border-radius: 10px !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stNumberInputStepDown"],
+    [data-testid="stSidebar"] [data-testid="stNumberInputStepUp"] {
+        width: 34px !important;
+        height: 34px !important;
     }
 
     /* 5. TOP HORIZONTAL NAVIGATION (ONE LEFT TO ANOTHER, SMARTBIZ PILLS) */
@@ -284,7 +293,7 @@ STORE_PRODUCTS = [
     },
     {
         "id": "prod_3",
-        "name": "Dell UltraSharp 32\" 4K USB-C Monitor",
+        "name": "Dell UltraSharp 32-inch 4K USB-C Monitor",
         "category": "Electronics",
         "badge": "Pro Merch",
         "badge_color": "#0369A1",
@@ -305,12 +314,12 @@ STORE_PRODUCTS = [
     },
     {
         "id": "prod_4",
-        "name": "Herman Miller Aeron Task Chair",
+        "name": "Herman Miller Ergonomic Task Chair",
         "category": "Furniture",
         "badge": "Low Stock",
         "badge_color": "#B45309",
         "badge_bg": "#FEF3C7",
-        "image_url": "https://images.unsplash.com/photo-1580481077114-1e0503f26284?w=600&auto=format&fit=crop&q=80",
+        "image_url": "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&auto=format&fit=crop&q=80",
         "price": 110.00,
         "comp_price": 115.00,
         "stock": 85,
@@ -415,7 +424,7 @@ STORE_PRODUCTS = [
         "badge": "Collector Item",
         "badge_color": "#B91C1C",
         "badge_bg": "#FEE2E2",
-        "image_url": "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=600&auto=format&fit=crop&q=80",
+        "image_url": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&auto=format&fit=crop&q=80",
         "price": 48.00,
         "comp_price": 50.00,
         "stock": 140,
@@ -428,6 +437,153 @@ STORE_PRODUCTS = [
         "promo": False,
         "region": "West",
         "description": "2,704-piece authentic scale replica with functional paddle gearbox and working suspension.",
+    },
+    {
+        "id": "prod_10",
+        "name": "DJI Mini 4 Pro Drone Combo",
+        "category": "Electronics",
+        "badge": "Top Merch",
+        "badge_color": "#0F766E",
+        "badge_bg": "#CCFBF1",
+        "image_url": "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600&auto=format&fit=crop&q=80",
+        "price": 95.00,
+        "comp_price": 98.00,
+        "stock": 110,
+        "demand": "High",
+        "season": "Summer",
+        "orders": 8,
+        "recency": 12,
+        "basket": 220.00,
+        "elasticity": 1.02,
+        "promo": True,
+        "region": "South",
+        "description": "Sub-249g ultra-lightweight drone with 4K/60fps HDR video, omnidirectional obstacle sensing.",
+    },
+    {
+        "id": "prod_11",
+        "name": "JBL Charge 5 Bluetooth Speaker",
+        "category": "Electronics",
+        "badge": "Trending",
+        "badge_color": "#1D4ED8",
+        "badge_bg": "#DBEAFE",
+        "image_url": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80",
+        "price": 45.00,
+        "comp_price": 48.00,
+        "stock": 280,
+        "demand": "High",
+        "season": "Summer",
+        "orders": 6,
+        "recency": 18,
+        "basket": 120.00,
+        "elasticity": 0.98,
+        "promo": False,
+        "region": "East",
+        "description": "IP67 dustproof and waterproof speaker with 20 hours of playtime and built-in powerbank.",
+    },
+    {
+        "id": "prod_12",
+        "name": "Minimalist Nordic Arc Floor Lamp",
+        "category": "Furniture",
+        "badge": "Design Icon",
+        "badge_color": "#4338CA",
+        "badge_bg": "#EEF2FF",
+        "image_url": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&auto=format&fit=crop&q=80",
+        "price": 38.00,
+        "comp_price": 40.00,
+        "stock": 190,
+        "demand": "Medium",
+        "season": "Winter",
+        "orders": 3,
+        "recency": 22,
+        "basket": 85.00,
+        "elasticity": 0.89,
+        "promo": False,
+        "region": "North",
+        "description": "Dimmable LED floor reading lamp with brushed brass arch and solid marble stabilizing base.",
+    },
+    {
+        "id": "prod_13",
+        "name": "Kashmiri Imperial Green Tea",
+        "category": "Groceries",
+        "badge": "Organic",
+        "badge_color": "#15803D",
+        "badge_bg": "#DCFCE7",
+        "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&auto=format&fit=crop&q=80",
+        "price": 32.00,
+        "comp_price": 35.00,
+        "stock": 420,
+        "demand": "High",
+        "season": "Winter",
+        "orders": 5,
+        "recency": 15,
+        "basket": 68.00,
+        "elasticity": 0.81,
+        "promo": True,
+        "region": "North",
+        "description": "First-flush whole-leaf green tea blended with whole Kashmiri saffron strands and crushed green cardamom.",
+    },
+    {
+        "id": "prod_14",
+        "name": "Nike Air Zoom Pegasus 40",
+        "category": "Clothing",
+        "badge": "Athletic",
+        "badge_color": "#B91C1C",
+        "badge_bg": "#FEE2E2",
+        "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80",
+        "price": 88.00,
+        "comp_price": 92.00,
+        "stock": 165,
+        "demand": "High",
+        "season": "Spring",
+        "orders": 9,
+        "recency": 11,
+        "basket": 175.00,
+        "elasticity": 1.08,
+        "promo": False,
+        "region": "West",
+        "description": "Dual Zoom Air units with lightweight engineered mesh and responsive React foam midsole.",
+    },
+    {
+        "id": "prod_15",
+        "name": "Herschel Little America Backpack",
+        "category": "Clothing",
+        "badge": "Popular",
+        "badge_color": "#6D28D9",
+        "badge_bg": "#EDE9FE",
+        "image_url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
+        "price": 52.00,
+        "comp_price": 55.00,
+        "stock": 240,
+        "demand": "Medium",
+        "season": "Autumn",
+        "orders": 4,
+        "recency": 28,
+        "basket": 110.00,
+        "elasticity": 0.94,
+        "promo": False,
+        "region": "East",
+        "description": "Classic mountaineering silhouette with padded fleece-lined 15-inch laptop sleeve and magnetic buckle closure.",
+    },
+    {
+        "id": "prod_16",
+        "name": "Catan 3D Collector Edition",
+        "category": "Toys",
+        "badge": "Collector",
+        "badge_color": "#B45309",
+        "badge_bg": "#FEF3C7",
+        "image_url": "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=600&auto=format&fit=crop&q=80",
+        "price": 42.00,
+        "comp_price": 45.00,
+        "stock": 175,
+        "demand": "Medium",
+        "season": "Winter",
+        "orders": 2,
+        "recency": 35,
+        "basket": 88.00,
+        "elasticity": 0.87,
+        "promo": False,
+        "region": "South",
+        "description": "Hand-painted 3D terrain tile set with antiqued wooden player pieces and custom resource card trays.",
     },
 ]
 
@@ -510,36 +666,92 @@ def handle_logout():
 # ---------------------------------------------------------------------------
 
 if not st.session_state["authenticated"]:
-    # Amazon SmartBiz Inspired Split Layout
-    col_hero, col_login = st.columns([1.2, 1], gap="large")
+    # Amazon SmartBiz Brand Header
+    st.markdown(
+        """
+        <div style="text-align: center; padding: 15px 0 25px 0;">
+            <div style="font-size: 34px; font-weight: 900; color: #0C232A; letter-spacing: -0.04em; display: inline-flex; align-items: baseline; gap: 4px;">
+                smart<span style="color: #00A896;">biz</span>
+                <span style="font-size: 15px; font-weight: 600; color: #64748B; margin-left: 6px;">by amazon &middot; AI Dynamic Pricing Portal</span>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    col_hero, col_login = st.columns([1.25, 1], gap="large")
 
     with col_hero:
         st.title("⚡ SmartBiz AI Pricing Engine")
         st.markdown(
             """
-            <div style="padding: 0 10px 20px 10px;">
-                <h2 style="font-size: 2.4rem !important; font-weight: 800; color: #0C232A; line-height: 1.15; margin-bottom: 16px;">
-                    Build, Optimize & Grow Your D2C Pricing
-                </h2>
-                <p style="font-size: 1.25rem !important; color: #475569; line-height: 1.6; margin-bottom: 28px;">
-                    Personalized dynamic discount recommendations powered by Contextual Multi-Armed Bandits (LinUCB) with strict commercial margin guardrails and live financial ledgers.
+            <div style="background-color: #FBF8F3; border-radius: 20px; padding: 34px 38px; border: 1px solid #F1ECE1; margin-bottom: 20px;">
+                <h1 style="font-size: 3.1rem !important; font-weight: 800; color: #0C232A; line-height: 1.15; margin: 0 0 16px 0; letter-spacing: -0.03em;">
+                    Build, Launch & Grow Your D2C Business
+                </h1>
+                <p style="font-size: 1.22rem !important; color: #475569; line-height: 1.6; margin-bottom: 24px;">
+                    Create a stunning e-commerce website powered by Amazon. SmartBiz's website builder provides all the tools you need to grow your business effortlessly.
                 </p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 30px;">
-                    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-                        <strong style="color: #0F766E; font-size: 16px;">🛡️ 100% Margin Protected</strong>
-                        <p style="font-size: 14px !important; color: #64748B; margin-top: 4px;">Inviolable margin floor prevents below-cost sales by construction.</p>
+                <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
+                    <span style="background: #0C232A; color: #FFFFFF; padding: 10px 22px; border-radius: 9999px; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 8px;">
+                        Sign up for free &rarr;
+                    </span>
+                    <span style="color: #00A896; font-weight: 700; font-size: 15px;">
+                        ⚡ 100% Inviolable Margin Guardrails
+                    </span>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        with st.container(border=True):
+            st.markdown("### 🔐 Merchant Portal Sign In")
+            st.caption("Access live contextual discount recommendations, guardrail telemetry, and ROI audits.")
+
+            if st.button("🚀 Instant 1-Click Demo Login as Pricing Director", use_container_width=True, type="primary"):
+                handle_login("sujan@smartbiz.nexus")
+                st.rerun()
+
+            st.markdown("<div style='text-align: center; color: #94A3B8; font-weight: 700; font-size: 13px; margin: 14px 0;'>— OR ENTER CREDENTIALS —</div>", unsafe_allow_html=True)
+
+            col_l_e, col_l_p = st.columns(2)
+            with col_l_e:
+                login_email = st.text_input("Store Manager Email", value="sujan@smartbiz.nexus", key="login_email_input")
+            with col_l_p:
+                login_pass = st.text_input("Password", value="••••••••", type="password", key="login_pass_input")
+
+            st.checkbox("Keep me signed in for 30 days", value=True)
+
+            if st.button("Sign In to Merchant Hub", use_container_width=True):
+                handle_login(login_email)
+                st.rerun()
+
+    with col_login:
+        st.markdown(
+            """
+            <div style="background: #FFFFFF; border-radius: 20px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 1px solid #E2E8F0; text-align: center;">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop&q=80" style="width: 100%; height: 260px; object-fit: cover; border-radius: 14px; margin-bottom: 18px;" alt="Entrepreneur with laptop"/>
+                
+                <div style="display: flex; gap: 14px; justify-content: space-between; text-align: left;">
+                    <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px;">
+                        <small style="color: #64748B; font-weight: 700; text-transform: uppercase;">Order Summary</small>
+                        <div style="font-size: 18px; font-weight: 800; color: #0C232A; margin: 4px 0 8px 0;">₹2,499.00</div>
+                        <div style="background-color: #00A896; color: #FFFFFF; text-align: center; padding: 6px 12px; border-radius: 8px; font-weight: 700; font-size: 13px;">
+                            Pay Now
+                        </div>
                     </div>
-                    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-                        <strong style="color: #2563EB; font-size: 16px;">📈 +24.3% Conversion Lift</strong>
-                        <p style="font-size: 14px !important; color: #64748B; margin-top: 4px;">Disjoint LinUCB actively learns shopper price elasticity.</p>
-                    </div>
-                    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-                        <strong style="color: #B45309; font-size: 16px;">⚡ O(d²) Matrix Updates</strong>
-                        <p style="font-size: 14px !important; color: #64748B; margin-top: 4px;">Sherman-Morrison rank-1 acceleration for microsecond inference.</p>
-                    </div>
-                    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-                        <strong style="color: #7C3AED; font-size: 16px;">📊 Financial Ledgers</strong>
-                        <p style="font-size: 14px !important; color: #64748B; margin-top: 4px;">Double-entry accounting tracking profit, revenue, and concessions.</p>
+                    <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px;">
+                        <small style="color: #64748B; font-weight: 700; text-transform: uppercase;">Sales per week</small>
+                        <div style="font-size: 20px; font-weight: 800; color: #00A896; margin: 4px 0 4px 0;">+24.3%</div>
+                        <div style="display: flex; align-items: flex-end; gap: 4px; height: 32px; padding-top: 6px;">
+                            <span style="background: #CBD5E1; width: 14%; height: 40%; border-radius: 3px;"></span>
+                            <span style="background: #CBD5E1; width: 14%; height: 55%; border-radius: 3px;"></span>
+                            <span style="background: #CBD5E1; width: 14%; height: 45%; border-radius: 3px;"></span>
+                            <span style="background: #00A896; width: 14%; height: 75%; border-radius: 3px;"></span>
+                            <span style="background: #00A896; width: 14%; height: 85%; border-radius: 3px;"></span>
+                            <span style="background: #00C49F; width: 14%; height: 100%; border-radius: 3px;"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -547,38 +759,53 @@ if not st.session_state["authenticated"]:
             unsafe_allow_html=True,
         )
 
-    with col_login:
-        st.markdown("<div style='height: 25px;'></div>", unsafe_allow_html=True)
-        with st.container(border=True):
-            st.markdown("### 🔐 Merchant Portal Sign In")
-            st.caption("Sign in to access real-time discount optimization and policy telemetry.")
+    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
 
-            st.markdown(
-                """
-                <div style="background-color: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 10px; padding: 16px; margin-bottom: 20px;">
-                    <strong style="color: #065F46; font-size: 16px;">⚡ Quick Demo Evaluation Mode:</strong>
-                    <p style="color: #047857; font-size: 14px !important; margin: 4px 0 0 0;">
-                        Click below to instantly access the command center as Pricing Operations Director.
+    # Section 2: Dark Teal (#07282F) from Image 5
+    st.markdown(
+        """
+        <div style="background-color: #07282F; border-radius: 20px; padding: 38px 44px; color: #FFFFFF; margin-bottom: 26px;">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: center;">
+                <div style="border: 1px solid #164853; border-radius: 16px; padding: 30px;">
+                    <h2 style="color: #FFFFFF !important; font-size: 2.4rem !important; font-weight: 800; line-height: 1.2; margin: 0 0 16px 0;">
+                        Run Your Store at Low Cost
+                    </h2>
+                    <p style="color: #E2E8F0; font-size: 1.15rem; line-height: 1.6; margin-bottom: 14px;">
+                        Start your website with no setup fees*, no subscriptions*, and low shipping rates.
                     </p>
+                    <p style="color: #94A3B8; font-size: 1.12rem; line-height: 1.6; margin-bottom: 18px;">
+                        Build and grow your business with a clear focus on your products, not your expenses.<br>
+                        <span style="color: #64748B; font-size: 13px;">* Free until Oct 2026.</span>
+                    </p>
+                    <div style="display: inline-block; background: #0F3B44; color: #00C49F; padding: 6px 14px; border-radius: 9999px; font-weight: 700; font-size: 13px;">
+                        🛡️ Zero Below-Cost Margin Violations Guaranteed
+                    </div>
                 </div>
-                """,
-                unsafe_allow_html=True,
-            )
-
-            if st.button("🚀 Instant 1-Click Demo Login as Pricing Director", use_container_width=True, type="primary"):
-                handle_login("sujan@nexusstore.com")
-                st.rerun()
-
-            st.markdown("<div style='text-align: center; color: #94A3B8; font-weight: 700; margin: 16px 0;'>— OR ENTER CREDENTIALS —</div>", unsafe_allow_html=True)
-
-            login_email = st.text_input("Store Manager Email", value="sujan@nexusstore.com", key="login_email_input")
-            login_pass = st.text_input("Password", value="••••••••", type="password", key="login_pass_input")
-
-            if st.button("Sign In to Merchant Console", use_container_width=True):
-                handle_login(login_email)
-                st.rerun()
-
-        st.caption("🔒 Protected by Disjoint LinUCB Policy Guardrails · 256-bit Session Security · ISO 27001 Compliant")
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #00A896 0%, #028090 100%); border-radius: 14px; padding: 20px 24px; color: #FFFFFF;">
+                        <span style="background: rgba(0,0,0,0.25); padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 700;">
+                            ⚡ Automations & LinUCB
+                        </span>
+                        <h4 style="color: #FFFFFF !important; margin: 8px 0 4px 0; font-size: 18px;">Everything You Need, Built In</h4>
+                        <p style="color: #E0F2FE; font-size: 13px; margin: 0;">
+                            Order management, contextual bandit personalization, and sub-millisecond inference algorithms included by default.
+                        </p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #FF9900 0%, #F59E0B 100%); border-radius: 14px; padding: 20px 24px; color: #FFFFFF;">
+                        <span style="background: rgba(0,0,0,0.25); padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 700;">
+                            🛡️ Amazon Trust Advantage
+                        </span>
+                        <h4 style="color: #FFFFFF !important; margin: 8px 0 4px 0; font-size: 18px;">Commercial Guardrails Architecture</h4>
+                        <p style="color: #FFFBEB; font-size: 13px; margin: 0;">
+                            Built-in unit margin floors and customer loyalty discount ceilings prevent loss-making markdowns before they are ever served.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     st.stop()
 
@@ -1061,30 +1288,57 @@ if nav_selection == "🏠 Store Overview & Catalog":
 
     st.markdown("<div style='height: 18px;'></div>", unsafe_allow_html=True)
 
-    # Featured Product Catalog with REAL PRODUCT PHOTOS
+    # Featured Product Catalog with 16 SKUs, Filters, and Real Photos
     st.markdown("## 🏷️ Featured Store Catalog — 1-Click Discount Optimizer")
-    st.caption("Click **'⚡ Optimize Discount'** on any product below to instantly load its catalogue price and shopper history into the contextual pricing engine.")
+    st.caption("Filter by category or search products, then click **'⚡ Optimize Discount'** on any product to instantly load its context into the pricing engine.")
 
-    for row_idx in range(0, len(STORE_PRODUCTS), 3):
+    col_fil1, col_fil2 = st.columns([1, 2])
+    with col_fil1:
+        cat_filter = st.selectbox(
+            "Filter by Category",
+            options=["All Categories", "Electronics", "Furniture", "Groceries", "Clothing", "Toys"],
+            key="cat_filter_choice",
+        )
+    with col_fil2:
+        search_query = st.text_input(
+            "Search Catalog Products",
+            placeholder="Search by SKU name, description, or category...",
+            key="search_catalog_input",
+        )
+
+    filtered_products = STORE_PRODUCTS
+    if cat_filter != "All Categories":
+        filtered_products = [p for p in filtered_products if p["category"] == cat_filter]
+    if search_query.strip():
+        q = search_query.strip().lower()
+        filtered_products = [
+            p for p in filtered_products
+            if q in p["name"].lower() or q in p["description"].lower() or q in p["category"].lower()
+        ]
+
+    st.caption(f"Showing {len(filtered_products)} items matching selected filters:")
+
+    for row_idx in range(0, len(filtered_products), 3):
         cols = st.columns(3)
         for col_idx in range(3):
             item_idx = row_idx + col_idx
-            if item_idx < len(STORE_PRODUCTS):
-                prod = STORE_PRODUCTS[item_idx]
+            if item_idx < len(filtered_products):
+                prod = filtered_products[item_idx]
+                escaped_name = html.escape(prod['name'])
+                escaped_desc = html.escape(prod['description'])
                 with cols[col_idx]:
                     with st.container(border=True):
-                        # Real Product Image
                         st.markdown(
                             f"""
-                            <img src="{prod['image_url']}" class="product-img-card" alt="{prod['name']}" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80';"/>
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin: 10px 0 6px 0;">
+                            <img src="{prod['image_url']}" class="product-img-card" alt="{escaped_name}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80';"/>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin: 12px 0 6px 0;">
                                 <span style="background-color: {prod['badge_bg']}; color: {prod['badge_color']}; padding: 4px 12px; border-radius: 9999px; font-size: 13px; font-weight: 700;">
                                     {prod['badge']}
                                 </span>
                                 <span style="color: #64748B; font-size: 13px; font-weight: 600;">{prod['category']}</span>
                             </div>
-                            <h3 style="margin: 0 0 6px 0; font-size: 19px; color: #0C232A;">{prod['name']}</h3>
-                            <p style="font-size: 14px !important; color: #475569; margin-bottom: 12px; height: 42px; overflow: hidden;">{prod['description']}</p>
+                            <h3 style="margin: 0 0 6px 0; font-size: 18px; color: #0C232A;">{escaped_name}</h3>
+                            <p style="font-size: 14px !important; color: #475569; margin-bottom: 12px; height: 42px; overflow: hidden;">{escaped_desc}</p>
                             <div style="display: flex; justify-content: space-between; background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px 14px; margin-bottom: 14px;">
                                 <div>
                                     <small style="color: #64748B; font-weight: 600;">Catalogue Price</small><br>
