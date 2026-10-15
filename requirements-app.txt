@@ -1,0 +1,7 @@
+# Pinned dependencies for Streamlit Dynamic Discount Recommendation App
+streamlit>=1.35.0,<=1.64.0
+pandas>=2.0.0,<=3.1.0
+numpy>=1.24.0,<=2.5.0
+plotly>=5.18.0,<=7.2.0
+scipy>=1.11.0,<=1.18.0
+pytest>=8.0.0,<=9.2.0

@@ -1,0 +1,31 @@
+claim_id,section,claim,type,source_file,cell_or_line,status
+C-001,00_abstract,"Fixed 10% earned the highest total profit (Rs 80,265.41 +/- 1,788.01) in Online mode.",fact-from-file,results/comparison_online.csv,"Row Fixed 10%, Col Total Profit",PASS
+C-002,00_abstract,"LinUCB generated the highest gross revenue (Rs 234,276.84 +/- 4,476.98) in Online mode.",fact-from-file,results/comparison_online.csv,"Row LinUCB, Col Total Revenue",PASS
+C-003,00_abstract,"LinUCB achieved a profit lift of +Rs 492.50 +/- 1,022.62 (+0.63%) vs. Rule-based, winning 8 of 10 seeds.",fact-from-file,results/comparison_lift.csv,Row 1,PASS
+C-004,01_intro,Dynamic discounting addresses the exploration-exploitation dilemma in retail pricing.,design-choice,src/policies/base.py,Class BasePolicy,PASS
+C-005,02_background,Sherman-Morrison formula reduces covariance update complexity from O(d^3) to O(d^2).,design-choice,src/policies/linucb.py,Method update(),PASS
+C-006,03_data,"Public retail dataset contains 73,100 clean store/product/day observational records.",fact-from-file,data/processed_retail.csv,Row count,PASS
+C-007,03_data,Customer registry and RFM features are simulated by design; no customer IDs exist in Kaggle dataset.,limitation,reports/evaluation_findings.md,Section 8,PASS
+C-008,03_data,CostPrice is modeled under an assumed uniform 40% margin rate.,design-choice,src/simulation/simulator.py,Margin assumption,PASS
+C-009,04_method,Logistic regression demand calibration yielded an ROC-AUC of 0.6322.,fact-from-file,reports/evaluation_findings.md,Section 8,PASS
+C-010,04_method,39.04% of historical records violate loyalty tier guardrail constraints.,fact-from-file,reports/fairness_and_business_audit.json,tier_violation_rate,PASS
+C-011,04_method,"Guardrails enforce New (max 5%), Regular (max 15%), Loyal (max 20%), and unit margin floor.",design-choice,src/guardrails/rules.py,get_eligible_actions,PASS
+C-012,04_method,"LinUCB uses alpha=0.5, context dimension d=20, and 20,000 online training rounds.",fact-from-file,models/linucb_v1_meta.json,"alpha, context_dim",PASS
+C-013,05_eval,Cumulative regret is computed on expected profit rather than noisy realized profit.,design-choice,src/evaluation/evaluator.py,compute_regret,PASS
+C-014,05_eval,"Dual-mode evaluation tests in-flight learning (Online, 20k rounds) and operational deployment (Frozen, 5k rounds).",design-choice,src/evaluation/evaluator.py,run_online_vs_frozen,PASS
+C-015,05_eval,Ten independent random seeds (42-51) are evaluated on identical pre-generated round sequences.,design-choice,src/simulation/generator.py,Sequence generation,PASS
+C-016,06_results,"Online Mode: Fixed 10% profit is Rs 80,265.41 +/- 1,788.01; LinUCB is Rs 78,924.82 +/- 788.32 (-1.67%).",fact-from-file,results/comparison_online.csv,Table 2.1,PASS
+C-017,06_results,"Online Mode: Thompson Sampling profit is Rs 78,856.21 +/- 1,027.65 (-1.76%, winning 2 of 10 seeds vs. Fixed 10%).",fact-from-file,results/comparison_lift.csv,Row 2,PASS
+C-018,06_results,"Frozen Mode: Fixed 10% profit is Rs 20,136.83 +/- 644.67; LinUCB is Rs 19,736.87 +/- 669.86 (-1.99%).",fact-from-file,results/comparison_frozen.csv,Table 2.2,PASS
+C-019,06_results,"Frozen Mode: LinUCB generated highest gross revenue (Rs 58,464.50 +/- 2,463.67).",fact-from-file,results/comparison_frozen.csv,Table 2.2,PASS
+C-020,06_results,"LinUCB offered higher average discount (8.45% vs 8.09% for Fixed 10%), driving higher conversion (24.29% vs 23.81%).",fact-from-file,results/comparison_online.csv,Table 2.1,PASS
+C-021,06_results,"Seed 42 final cumulative regret: LinUCB is Rs 1,754.14; Thompson Sampling is Rs 1,075.28.",fact-from-file,results/regret_checkpoints.csv,Round 20000,PASS
+C-022,06_results,"Average regret per round in final 2,000 rounds flattens to Rs 0.0919 (LinUCB) and Rs 0.0483 (Thompson).",fact-from-file,results/regret_checkpoints.csv,Window regret,PASS
+C-023,06_results,Linear model on sigmoid environment flattens to a non-zero constant slope due to functional approximation gap.,interpretation,reports/evaluation_findings.md,Section 3,PASS
+C-024,06_results,"Financial ledger shows break-even of LinUCB vs. Rule-based at Round 3,200 on Seed 42.",fact-from-file,results/ledger_seed42.csv,Round 3200 crossover,PASS
+C-025,06_results,"Guardrail compliance was 100% with 0 violations across 200,000 online rounds.",fact-from-file,results/multiseed_online_by_tier.csv,Violation audit,PASS
+C-026,06_results,"Off-policy replay matched 14,973 rows for LinUCB (20.48%) with mean profit of Rs 6.11 [Rs 5.84, Rs 6.38].",fact-from-file,results/replay_results.csv,LinUCB row,PASS
+C-027,06_results,Replay confidence intervals overlap across all policies; replay does not prove superiority.,limitation,reports/evaluation_findings.md,Section 5,PASS
+C-028,07_app,"Streamlit app logic is decoupled, operates in frozen forward inference, and runs 100% offline.",design-choice,app/streamlit_app.py,App architecture,PASS
+C-029,08_disc,Fixed 10% won on profit because it captured conversion lift without triggering the steep margin sacrifice of 15-20% discounts.,interpretation,reports/evaluation_findings.md,Section 1,PASS
+C-030,09_limits,"Training and evaluation share the same simulator; real-world deployment requires budgets, competitor reactions, and fairness audits.",limitation,reports/evaluation_findings.md,Section 7,PASS

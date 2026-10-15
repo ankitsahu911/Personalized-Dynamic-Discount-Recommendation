@@ -1,0 +1,9 @@
+Mode,Bandit Policy,Comparator,Profit Difference (Rs),Percentage Lift (%),Win Count
+ONLINE (20k rounds),LinUCB,Fixed 10%,"Rs -1,340.59 +/- 1,554.26",-1.67%,1 of 10 seeds
+ONLINE (20k rounds),LinUCB,Rule-based,"Rs +492.50 +/- 1,022.62",+0.63%,8 of 10 seeds
+ONLINE (20k rounds),Thompson Sampling,Fixed 10%,"Rs -1,409.20 +/- 1,398.69",-1.76%,2 of 10 seeds
+ONLINE (20k rounds),Thompson Sampling,Rule-based,Rs +423.88 +/- 937.37,+0.54%,6 of 10 seeds
+FROZEN (5k rounds),LinUCB,Fixed 10%,Rs -399.96 +/- 476.46,-1.99%,1 of 10 seeds
+FROZEN (5k rounds),LinUCB,Rule-based,Rs +69.73 +/- 811.53,+0.35%,4 of 10 seeds
+FROZEN (5k rounds),Thompson Sampling,Fixed 10%,Rs -406.90 +/- 403.13,-2.02%,2 of 10 seeds
+FROZEN (5k rounds),Thompson Sampling,Rule-based,Rs +62.79 +/- 611.42,+0.32%,7 of 10 seeds

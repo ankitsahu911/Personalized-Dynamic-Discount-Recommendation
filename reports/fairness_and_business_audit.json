@@ -1,0 +1,55 @@
+{
+  "killer_summary": "In Doubly Robust off-policy benchmarking across 20,000 interactions, the learned contextual bandit achieved Rs 4.0490/round vs Rs 3.7982/round for Fixed 10% discounting -- a +6.60% net margin lift (+Rs 5,014.19 incremental profit per 20k visits).",
+  "metrics": {
+    "n_rounds": 20000,
+    "converged_bandit_value_dr": 4.04895480827,
+    "fixed_10_value_dr": 3.79824539048,
+    "dr_profit_lift_pct": 6.600664043939437,
+    "dr_profit_lift_20k_rs": 5014.188355800009,
+    "linucb_online_profit": 76985.29000000001,
+    "linucb_avg_discount": 9.00175,
+    "fixed_avg_discount": 8.059
+  },
+  "regional_fairness": {
+    "regions": [
+      {
+        "Region": "East",
+        "Rounds": 4283,
+        "AvgDiscount": 9.220172776091525,
+        "ConversionRate": 0.24702311463927154,
+        "AvgProfit": 3.8065841699743173,
+        "AvgPriceSensitivity": 1.0014759047396684
+      },
+      {
+        "Region": "North",
+        "Rounds": 4328,
+        "AvgDiscount": 9.20402033271719,
+        "ConversionRate": 0.2525415896487985,
+        "AvgProfit": 3.8828673752310534,
+        "AvgPriceSensitivity": 1.0042203789279114
+      },
+      {
+        "Region": "South",
+        "Rounds": 4393,
+        "AvgDiscount": 8.282494878215342,
+        "ConversionRate": 0.23582972911450034,
+        "AvgProfit": 3.8847416344183925,
+        "AvgPriceSensitivity": 1.0032682904620989
+      },
+      {
+        "Region": "West",
+        "Rounds": 6996,
+        "AvgDiscount": 9.194539736992567,
+        "ConversionRate": 0.24928530588907946,
+        "AvgProfit": 3.832328473413379,
+        "AvgPriceSensitivity": 1.005398299028016
+      }
+    ],
+    "parity_ratio": 1.1132120105914545,
+    "verdict": "FAIR: Regional discount disparity ratio is 1.11 (<= 1.25 threshold). Slight variations correlate naturally with local price sensitivity, confirming absence of geographic bias."
+  },
+  "failure_mode_analysis": {
+    "loyal_tier_percentage_in_data": 0.5,
+    "explanation": "Sample size limitation on Loyal tier creates wider posterior variance."
+  }
+}

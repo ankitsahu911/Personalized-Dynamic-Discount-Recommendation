@@ -1,0 +1,499 @@
+[
+  {
+    "inputs": {
+      "Price": 25.0,
+      "CompetitorPricing": 22.0,
+      "Category": "Electronics",
+      "Region": "West",
+      "Seasonality": "Spring",
+      "InventoryLevel": 50,
+      "DemandLevel": "Low",
+      "Promotion": false,
+      "PurchaseCount": 0,
+      "RecencyDays": 0,
+      "CurrentBasketValue": 50.0,
+      "CustomerPriceSensitivity": 0.7
+    },
+    "chosen_discount": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "discounted_price": 25.0,
+    "unit_margin": 10.0,
+    "why_pick_text": "The model recommended 0% with a total score of 1.66. It beat runner-up 5% (score -0.92) by a margin of 2.58. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 30.0,
+      "CompetitorPricing": 27.2,
+      "Category": "Groceries",
+      "Region": "South",
+      "Seasonality": "Summer",
+      "InventoryLevel": 75,
+      "DemandLevel": "Medium",
+      "Promotion": true,
+      "PurchaseCount": 1,
+      "RecencyDays": 7,
+      "CurrentBasketValue": 65.0,
+      "CustomerPriceSensitivity": 0.78
+    },
+    "chosen_discount": 5,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "discounted_price": 28.5,
+    "unit_margin": 10.5,
+    "why_pick_text": "The model recommended 5% with a total score of 4.12. It beat runner-up 0% (score 3.40) by a margin of 0.72. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 35.0,
+      "CompetitorPricing": 32.4,
+      "Category": "Furniture",
+      "Region": "North",
+      "Seasonality": "Autumn",
+      "InventoryLevel": 100,
+      "DemandLevel": "High",
+      "Promotion": false,
+      "PurchaseCount": 2,
+      "RecencyDays": 14,
+      "CurrentBasketValue": 80.0,
+      "CustomerPriceSensitivity": 0.86
+    },
+    "chosen_discount": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "discounted_price": 35.0,
+    "unit_margin": 14.0,
+    "why_pick_text": "The model recommended 0% with a total score of 2.73. It beat runner-up 5% (score -0.80) by a margin of 3.53. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 40.0,
+      "CompetitorPricing": 37.6,
+      "Category": "Toys",
+      "Region": "East",
+      "Seasonality": "Winter",
+      "InventoryLevel": 125,
+      "DemandLevel": "Low",
+      "Promotion": true,
+      "PurchaseCount": 3,
+      "RecencyDays": 21,
+      "CurrentBasketValue": 95.0,
+      "CustomerPriceSensitivity": 0.94
+    },
+    "chosen_discount": 5,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "discounted_price": 38.0,
+    "unit_margin": 14.0,
+    "why_pick_text": "The model recommended 5% with a total score of 4.98. It beat runner-up 15% (score 4.03) by a margin of 0.96. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 45.0,
+      "CompetitorPricing": 42.8,
+      "Category": "Clothing",
+      "Region": "West",
+      "Seasonality": "Spring",
+      "InventoryLevel": 150,
+      "DemandLevel": "Medium",
+      "Promotion": false,
+      "PurchaseCount": 4,
+      "RecencyDays": 28,
+      "CurrentBasketValue": 110.0,
+      "CustomerPriceSensitivity": 1.02
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "discounted_price": 38.25,
+    "unit_margin": 11.25,
+    "why_pick_text": "The model recommended 15% with a total score of 2.99. It beat runner-up 10% (score 1.49) by a margin of 1.50. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 50.0,
+      "CompetitorPricing": 48.0,
+      "Category": "Electronics",
+      "Region": "South",
+      "Seasonality": "Summer",
+      "InventoryLevel": 175,
+      "DemandLevel": "High",
+      "Promotion": true,
+      "PurchaseCount": 5,
+      "RecencyDays": 35,
+      "CurrentBasketValue": 125.0,
+      "CustomerPriceSensitivity": 1.1
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "discounted_price": 42.5,
+    "unit_margin": 12.5,
+    "why_pick_text": "The model recommended 15% with a total score of 4.65. It beat runner-up 10% (score 4.59) by a margin of 0.06. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 55.0,
+      "CompetitorPricing": 53.2,
+      "Category": "Groceries",
+      "Region": "North",
+      "Seasonality": "Autumn",
+      "InventoryLevel": 200,
+      "DemandLevel": "Low",
+      "Promotion": false,
+      "PurchaseCount": 6,
+      "RecencyDays": 42,
+      "CurrentBasketValue": 140.0,
+      "CustomerPriceSensitivity": 1.18
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "discounted_price": 46.75,
+    "unit_margin": 13.75,
+    "why_pick_text": "The model recommended 15% with a total score of 3.76. It beat runner-up 5% (score 2.65) by a margin of 1.12. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 60.0,
+      "CompetitorPricing": 58.4,
+      "Category": "Furniture",
+      "Region": "East",
+      "Seasonality": "Winter",
+      "InventoryLevel": 225,
+      "DemandLevel": "Medium",
+      "Promotion": true,
+      "PurchaseCount": 7,
+      "RecencyDays": 49,
+      "CurrentBasketValue": 155.0,
+      "CustomerPriceSensitivity": 1.26
+    },
+    "chosen_discount": 5,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "discounted_price": 57.0,
+    "unit_margin": 21.0,
+    "why_pick_text": "The model recommended 5% with a total score of 6.18. It beat runner-up 15% (score 5.12) by a margin of 1.06. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 65.0,
+      "CompetitorPricing": 63.6,
+      "Category": "Toys",
+      "Region": "West",
+      "Seasonality": "Spring",
+      "InventoryLevel": 250,
+      "DemandLevel": "High",
+      "Promotion": false,
+      "PurchaseCount": 8,
+      "RecencyDays": 56,
+      "CurrentBasketValue": 170.0,
+      "CustomerPriceSensitivity": 1.34
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "discounted_price": 55.25,
+    "unit_margin": 16.25,
+    "why_pick_text": "The model recommended 15% with a total score of 4.42. It beat runner-up 10% (score 3.43) by a margin of 0.99. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 70.0,
+      "CompetitorPricing": 68.80000000000001,
+      "Category": "Clothing",
+      "Region": "South",
+      "Seasonality": "Summer",
+      "InventoryLevel": 275,
+      "DemandLevel": "Low",
+      "Promotion": true,
+      "PurchaseCount": 9,
+      "RecencyDays": 63,
+      "CurrentBasketValue": 185.0,
+      "CustomerPriceSensitivity": 1.42
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "discounted_price": 59.5,
+    "unit_margin": 17.5,
+    "why_pick_text": "The model recommended 15% with a total score of 6.32. It beat runner-up 5% (score 5.27) by a margin of 1.06. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 75.0,
+      "CompetitorPricing": 74.0,
+      "Category": "Electronics",
+      "Region": "North",
+      "Seasonality": "Autumn",
+      "InventoryLevel": 300,
+      "DemandLevel": "Medium",
+      "Promotion": false,
+      "PurchaseCount": 10,
+      "RecencyDays": 70,
+      "CurrentBasketValue": 200.0,
+      "CustomerPriceSensitivity": 0.7
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "discounted_price": 63.75,
+    "unit_margin": 18.75,
+    "why_pick_text": "The model recommended 15% with a total score of 5.61. It beat runner-up 20% (score 5.16) by a margin of 0.45. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 80.0,
+      "CompetitorPricing": 79.2,
+      "Category": "Groceries",
+      "Region": "East",
+      "Seasonality": "Winter",
+      "InventoryLevel": 325,
+      "DemandLevel": "High",
+      "Promotion": true,
+      "PurchaseCount": 11,
+      "RecencyDays": 77,
+      "CurrentBasketValue": 215.0,
+      "CustomerPriceSensitivity": 0.78
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "discounted_price": 68.0,
+    "unit_margin": 20.0,
+    "why_pick_text": "The model recommended 15% with a total score of 6.56. It beat runner-up 20% (score 6.06) by a margin of 0.50. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 85.0,
+      "CompetitorPricing": 84.4,
+      "Category": "Furniture",
+      "Region": "West",
+      "Seasonality": "Spring",
+      "InventoryLevel": 350,
+      "DemandLevel": "Low",
+      "Promotion": false,
+      "PurchaseCount": 12,
+      "RecencyDays": 84,
+      "CurrentBasketValue": 230.0,
+      "CustomerPriceSensitivity": 0.86
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "discounted_price": 72.25,
+    "unit_margin": 21.25,
+    "why_pick_text": "The model recommended 15% with a total score of 5.99. It beat runner-up 10% (score 1.40) by a margin of 4.59. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 90.0,
+      "CompetitorPricing": 89.60000000000001,
+      "Category": "Toys",
+      "Region": "South",
+      "Seasonality": "Summer",
+      "InventoryLevel": 375,
+      "DemandLevel": "Medium",
+      "Promotion": true,
+      "PurchaseCount": 13,
+      "RecencyDays": 1,
+      "CurrentBasketValue": 245.0,
+      "CustomerPriceSensitivity": 0.94
+    },
+    "chosen_discount": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "discounted_price": 81.0,
+    "unit_margin": 27.0,
+    "why_pick_text": "The model recommended 10% with a total score of 7.75. It beat runner-up 15% (score 7.49) by a margin of 0.26. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 95.0,
+      "CompetitorPricing": 94.8,
+      "Category": "Clothing",
+      "Region": "North",
+      "Seasonality": "Autumn",
+      "InventoryLevel": 400,
+      "DemandLevel": "High",
+      "Promotion": false,
+      "PurchaseCount": 14,
+      "RecencyDays": 8,
+      "CurrentBasketValue": 260.0,
+      "CustomerPriceSensitivity": 1.02
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "discounted_price": 80.75,
+    "unit_margin": 23.75,
+    "why_pick_text": "The model recommended 15% with a total score of 6.54. It beat runner-up 20% (score 3.99) by a margin of 2.55. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 100.0,
+      "CompetitorPricing": 100.0,
+      "Category": "Electronics",
+      "Region": "East",
+      "Seasonality": "Winter",
+      "InventoryLevel": 425,
+      "DemandLevel": "Low",
+      "Promotion": true,
+      "PurchaseCount": 15,
+      "RecencyDays": 15,
+      "CurrentBasketValue": 275.0,
+      "CustomerPriceSensitivity": 1.1
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "discounted_price": 85.0,
+    "unit_margin": 25.0,
+    "why_pick_text": "The model recommended 15% with a total score of 8.35. It beat runner-up 10% (score 5.93) by a margin of 2.41. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 105.0,
+      "CompetitorPricing": 105.2,
+      "Category": "Groceries",
+      "Region": "West",
+      "Seasonality": "Spring",
+      "InventoryLevel": 450,
+      "DemandLevel": "Medium",
+      "Promotion": false,
+      "PurchaseCount": 16,
+      "RecencyDays": 22,
+      "CurrentBasketValue": 290.0,
+      "CustomerPriceSensitivity": 1.18
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "discounted_price": 89.25,
+    "unit_margin": 26.25,
+    "why_pick_text": "The model recommended 15% with a total score of 6.99. It beat runner-up 10% (score 5.69) by a margin of 1.30. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 110.0,
+      "CompetitorPricing": 110.4,
+      "Category": "Furniture",
+      "Region": "South",
+      "Seasonality": "Summer",
+      "InventoryLevel": 475,
+      "DemandLevel": "High",
+      "Promotion": true,
+      "PurchaseCount": 17,
+      "RecencyDays": 29,
+      "CurrentBasketValue": 305.0,
+      "CustomerPriceSensitivity": 1.26
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "discounted_price": 93.5,
+    "unit_margin": 27.5,
+    "why_pick_text": "The model recommended 15% with a total score of 8.58. It beat runner-up 10% (score 4.39) by a margin of 4.19. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 115.0,
+      "CompetitorPricing": 115.60000000000001,
+      "Category": "Toys",
+      "Region": "North",
+      "Seasonality": "Autumn",
+      "InventoryLevel": 500,
+      "DemandLevel": "Low",
+      "Promotion": false,
+      "PurchaseCount": 18,
+      "RecencyDays": 36,
+      "CurrentBasketValue": 320.0,
+      "CustomerPriceSensitivity": 1.34
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "discounted_price": 97.75,
+    "unit_margin": 28.75,
+    "why_pick_text": "The model recommended 15% with a total score of 8.35. It beat runner-up 10% (score 4.93) by a margin of 3.43. The pick is primarily driven by the point estimate (expected unit profitability)."
+  },
+  {
+    "inputs": {
+      "Price": 120.0,
+      "CompetitorPricing": 120.8,
+      "Category": "Clothing",
+      "Region": "East",
+      "Seasonality": "Winter",
+      "InventoryLevel": 525,
+      "DemandLevel": "Medium",
+      "Promotion": true,
+      "PurchaseCount": 19,
+      "RecencyDays": 43,
+      "CurrentBasketValue": 335.0,
+      "CustomerPriceSensitivity": 1.42
+    },
+    "chosen_discount": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "discounted_price": 102.0,
+    "unit_margin": 30.0,
+    "why_pick_text": "The model recommended 15% with a total score of 9.63. It beat runner-up 10% (score 5.02) by a margin of 4.60. The pick is primarily driven by the point estimate (expected unit profitability)."
+  }
+]

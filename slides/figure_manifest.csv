@@ -1,0 +1,8 @@
+figure_name,description,source_data,file_path
+regret_curves_slide.png,"Cumulative regret convergence (LinUCB vs Thompson) over 20,000 rounds with 10-seed error bands",results/cumulative_by_seed.npz,slides/figures/regret_curves_slide.png
+cumulative_profit_slide.png,"Cumulative realized profit across all 5 policies over 20,000 rounds with direct terminal labels",results/cumulative_by_seed.npz,slides/figures/cumulative_profit_slide.png
+gain_loss_slide.png,"Running profit difference of LinUCB vs Rule-based and Fixed 10%, highlighting break-even at round 3,200",results/cumulative_by_seed.npz,slides/figures/gain_loss_slide.png
+profit_vs_discount_scatter_slide.png,"Cross-seed scatter plot of total profit vs average discount offered, proving diminishing margin returns",results/multiseed_online_metrics.csv,slides/figures/profit_vs_discount_scatter_slide.png
+alpha_regret_slide.png,"LinUCB final cumulative regret across exploration parameter alpha grid [0.0, 5.0]",results/alpha_sensitivity.csv,slides/figures/alpha_regret_slide.png
+ablation_tradeoff_slide.png,Reward penalty ablation showing collapse of promotional discounting and revenue under penalty lambda,results/reward_ablation.csv,slides/figures/ablation_tradeoff_slide.png
+replay_comparison_slide.png,"Off-policy replay mean profit per round with 95% confidence intervals across 73,100 records",results/replay_results.csv,slides/figures/replay_comparison_slide.png

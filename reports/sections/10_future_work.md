@@ -1,0 +1,11 @@
+# 10. Future Work
+
+This section outlines technical and methodological extensions identified in the project specification to advance beyond the current implementation. *None of these extensions was implemented in the current codebase unless explicitly documented in project files.*
+
+1. **Non-Linear Deep Contextual Bandits (NeuralUCB):** Implementing NeuralUCB [8] using deep neural network feature extractors would allow the bandit to approximate complex, non-linear sigmoidal demand surfaces directly, eliminating the persistent linear approximation error observed in regret curves.
+2. **Streaming Online Model Updates:** Engineering an asynchronous streaming feedback pipeline (e.g., via Apache Kafka) would enable the bandit to continuously update its covariance matrices in real time as live retail point-of-sale transactions complete.
+3. **Evaluation on Identity-Bearing Retail Datasets:** Transitioning from the aggregated Kaggle dataset to an identity-bearing transactional corpus (such as the UCI Online Retail dataset, which contains authentic customer IDs and multi-item invoices) would enable genuine empirical evaluation of longitudinal customer RFM dynamics without synthetic registry simulation.
+4. **Reward-Formulated Loyalty Policies with Convergence Guarantees ("Option 2"):** Formulating customer retention value directly into the reward function—supported by theoretical regret proofs—would enable the agent to learn loyalty stewardship organically rather than relying entirely on hard guardrails.
+5. **Hybrid Linear Contextual Bandits:** Deploying Hybrid LinUCB [1] with shared feature representations across arms would allow the model to pool customer-level parameters while maintaining arm-specific coefficients for product pricing attributes, accelerating early-stage convergence.
+6. **Competitor-Reactive Dynamic Game Pricing:** Integrating multi-agent game-theoretic feedback loops where competitor prices respond endogenously to the bandit's promotional actions would simulate realistic oligopolistic retail competition.
+7. **Production Microservice Architecture (FastAPI & PostgreSQL):** Packaging the bandit inference engine into a production-grade REST API using FastAPI, backed by a persistent PostgreSQL database for ledger logging and Redis for sub-millisecond context caching.

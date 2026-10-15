@@ -1,0 +1,63 @@
+number_reported,meaning_and_context,source_file,cell_or_column_reference,audit_status
+"Rs 80,265.41 +/- 1,788.01",Online mode Fixed 10% total profit,results/comparison_online.csv,"Row Fixed 10%, Col Total Profit (Rs)",PASS
+"Rs 78,924.82 +/- 788.32",Online mode LinUCB total profit,results/comparison_online.csv,"Row LinUCB, Col Total Profit (Rs)",PASS
+"Rs 78,856.21 +/- 1,027.65",Online mode Thompson Sampling total profit,results/comparison_online.csv,"Row Thompson Sampling, Col Total Profit (Rs)",PASS
+"Rs 78,432.33 +/- 1,176.84",Online mode Rule-based total profit,results/comparison_online.csv,"Row Rule-based, Col Total Profit (Rs)",PASS
+"Rs 78,371.40 +/- 985.88",Online mode Random baseline total profit,results/comparison_online.csv,"Row Random, Col Total Profit (Rs)",PASS
+"Rs 234,276.84 +/- 4,476.98",Online mode LinUCB total revenue,results/comparison_online.csv,"Row LinUCB, Col Total Revenue (Rs)",PASS
+"Rs 232,094.81 +/- 5,212.23",Online mode Fixed 10% total revenue,results/comparison_online.csv,"Row Fixed 10%, Col Total Revenue (Rs)",PASS
+"Rs 232,086.22 +/- 3,581.12",Online mode Rule-based total revenue,results/comparison_online.csv,"Row Rule-based, Col Total Revenue (Rs)",PASS
+"Rs 232,651.13 +/- 5,585.07",Online mode Thompson Sampling total revenue,results/comparison_online.csv,"Row Thompson Sampling, Col Total Revenue (Rs)",PASS
+"Rs 232,030.37 +/- 3,354.84",Online mode Random baseline total revenue,results/comparison_online.csv,"Row Random, Col Total Revenue (Rs)",PASS
+24.29% +/- 0.58%,Online mode LinUCB conversion rate,results/comparison_online.csv,"Row LinUCB, Col Conversion Rate (%)",PASS
+23.81% +/- 0.44%,Online mode Fixed 10% conversion rate,results/comparison_online.csv,"Row Fixed 10%, Col Conversion Rate (%)",PASS
+24.08% +/- 0.70%,Online mode Thompson conversion rate,results/comparison_online.csv,"Row Thompson, Col Conversion Rate (%)",PASS
+24.07% +/- 0.37%,Online mode Rule-based conversion rate,results/comparison_online.csv,"Row Rule-based, Col Conversion Rate (%)",PASS
+24.05% +/- 0.33%,Online mode Random baseline conversion rate,results/comparison_online.csv,"Row Random, Col Conversion Rate (%)",PASS
+8.45% +/- 0.59%,Online mode LinUCB avg discount offered,results/comparison_online.csv,"Row LinUCB, Col Avg Discount Offered (%)",PASS
+8.09% +/- 0.04%,Online mode Fixed 10% avg discount offered,results/comparison_online.csv,"Row Fixed 10%, Col Avg Discount Offered (%)",PASS
+"Rs 24,642.35 +/- 2,794.46",Online mode LinUCB total discount given,results/comparison_online.csv,"Row LinUCB, Col Total Discount Given (Rs)",PASS
+"Rs 20,954.58 +/- 511.11",Online mode Fixed 10% total discount given,results/comparison_online.csv,"Row Fixed 10%, Col Total Discount Given (Rs)",PASS
+"Rs 1,475.69 +/- 399.77",Online mode LinUCB cumulative regret,results/comparison_online.csv,"Row LinUCB, Col Cumulative Regret (Rs)",PASS
+"Rs 1,489.61 +/- 537.17",Online mode Thompson cumulative regret,results/comparison_online.csv,"Row Thompson, Col Cumulative Regret (Rs)",PASS
+Rs 23.97 +/- 1.59,Online mode Fixed 10% cumulative regret,results/comparison_online.csv,"Row Fixed 10%, Col Cumulative Regret (Rs)",PASS
+"-Rs 1,340.59 +/- 1,554.26",LinUCB online profit difference vs. Fixed 10%,results/comparison_lift.csv,"Row 0, Col Profit Difference (Rs)",PASS
+-1.67%,LinUCB online percentage lift vs. Fixed 10%,results/comparison_lift.csv,"Row 0, Col Percentage Lift (%)",PASS
+1 of 10 seeds,LinUCB online win count vs. Fixed 10%,results/comparison_lift.csv,"Row 0, Col Win Count",PASS
+"+Rs 492.50 +/- 1,022.62",LinUCB online profit difference vs. Rule-based,results/comparison_lift.csv,"Row 1, Col Profit Difference (Rs)",PASS
++0.63%,LinUCB online percentage lift vs. Rule-based,results/comparison_lift.csv,"Row 1, Col Percentage Lift (%)",PASS
+8 of 10 seeds,LinUCB online win count vs. Rule-based,results/comparison_lift.csv,"Row 1, Col Win Count",PASS
+"-Rs 1,409.20 +/- 1,398.69",Thompson online profit difference vs. Fixed 10%,results/comparison_lift.csv,"Row 2, Col Profit Difference (Rs)",PASS
+-1.76%,Thompson online percentage lift vs. Fixed 10%,results/comparison_lift.csv,"Row 2, Col Percentage Lift (%)",PASS
+2 of 10 seeds,Thompson online win count vs. Fixed 10%,results/comparison_lift.csv,"Row 2, Col Win Count",PASS
++Rs 423.88 +/- 937.37,Thompson online profit difference vs. Rule-based,results/comparison_lift.csv,"Row 3, Col Profit Difference (Rs)",PASS
++0.54%,Thompson online percentage lift vs. Rule-based,results/comparison_lift.csv,"Row 3, Col Percentage Lift (%)",PASS
+6 of 10 seeds,Thompson online win count vs. Rule-based,results/comparison_lift.csv,"Row 3, Col Win Count",PASS
+"Rs 20,136.83 +/- 644.67",Frozen mode Fixed 10% total profit,results/comparison_frozen.csv,"Row Fixed 10%, Col Total Profit (Rs)",PASS
+"Rs 19,736.87 +/- 669.86",Frozen mode LinUCB total profit,results/comparison_frozen.csv,"Row LinUCB, Col Total Profit (Rs)",PASS
+"Rs 19,729.93 +/- 620.49",Frozen mode Thompson total profit,results/comparison_frozen.csv,"Row Thompson, Col Total Profit (Rs)",PASS
+"Rs 19,667.14 +/- 883.74",Frozen mode Rule-based total profit,results/comparison_frozen.csv,"Row Rule-based, Col Total Profit (Rs)",PASS
+"Rs 19,375.57 +/- 650.56",Frozen mode Random baseline total profit,results/comparison_frozen.csv,"Row Random, Col Total Profit (Rs)",PASS
+"Rs 58,464.50 +/- 2,463.67",Frozen mode LinUCB total revenue,results/comparison_frozen.csv,"Row LinUCB, Col Total Revenue (Rs)",PASS
+"Rs 58,298.52 +/- 1,932.34",Frozen mode Fixed 10% total revenue,results/comparison_frozen.csv,"Row Fixed 10%, Col Total Revenue (Rs)",PASS
+-Rs 399.96 +/- 476.46,LinUCB frozen profit difference vs. Fixed 10%,results/comparison_lift.csv,"Row 4, Col Profit Difference (Rs)",PASS
+-1.99%,LinUCB frozen percentage lift vs. Fixed 10%,results/comparison_lift.csv,"Row 4, Col Percentage Lift (%)",PASS
++Rs 69.73 +/- 811.53,LinUCB frozen profit difference vs. Rule-based,results/comparison_lift.csv,"Row 5, Col Profit Difference (Rs)",PASS
++0.35%,LinUCB frozen percentage lift vs. Rule-based,results/comparison_lift.csv,"Row 5, Col Percentage Lift (%)",PASS
+"Rs 1,754.14","LinUCB cumulative regret at Round 20,000 (Seed 42)",results/regret_checkpoints.csv,"Row 20000, Col LinUCB",PASS
+"Rs 1,075.28","Thompson cumulative regret at Round 20,000 (Seed 42)",results/regret_checkpoints.csv,"Row 20000, Col Thompson",PASS
+Rs 0.0919,LinUCB window regret per round (last 2k rounds),results/regret_checkpoints.csv,"Row Last 2000 rounds, Col LinUCB Window",PASS
+Rs 0.0483,Thompson window regret per round (last 2k rounds),results/regret_checkpoints.csv,"Row Last 2000 rounds, Col Thompson Window",PASS
+16.90%,LinUCB oracle arm match percentage (Seed 42),reports/evaluation_findings.md,Section 3.1,PASS
+62.20%,Thompson oracle arm match percentage (Seed 42),reports/evaluation_findings.md,Section 3.1,PASS
+"73,100",Total observational records in public retail dataset,results/replay_results.csv,Row Total Records,PASS
+"14,973",LinUCB matched records in replay evaluation,results/replay_results.csv,"Row LinUCB, Col Matched Records",PASS
+20.48%,LinUCB replay match rate percentage,results/replay_results.csv,"Row LinUCB, Col Replay Match Rate (%)",PASS
+Rs 6.11,LinUCB replay mean profit per round,results/replay_results.csv,"Row LinUCB, Col Mean Profit / Round (Rs)",PASS
+Rs 5.87,Fixed 10% replay mean profit per round,results/replay_results.csv,"Row Fixed 10%, Col Mean Profit / Round (Rs)",PASS
+39.04%,Historical dataset loyalty tier violation rate,reports/fairness_and_business_audit.json,tier_violation_rate,PASS
+0.6322,Logistic regression demand calibration ROC-AUC,reports/evaluation_findings.md,Section 8,PASS
+"8,000",Total synthetic customer registry profiles,src/simulation/registry.py,Registry size,PASS
+20,Context vector dimensionality,models/linucb_v1_meta.json,context_dim,PASS
+0.5,LinUCB exploration confidence parameter alpha,models/linucb_v1_meta.json,alpha,PASS
+0.5,Thompson Sampling observation variance multiplier sigma,models/thompson_v1_meta.json,sigma,PASS

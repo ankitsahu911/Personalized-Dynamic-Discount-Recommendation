@@ -1,0 +1,1380 @@
+[
+  {
+    "customer_id": 51,
+    "customer_tier": "New",
+    "purchase_count": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 0,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 49,
+    "customer_tier": "New",
+    "purchase_count": 4,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 25,
+    "customer_tier": "New",
+    "purchase_count": 16,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 4,
+    "customer_tier": "New",
+    "purchase_count": 8,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 47,
+    "customer_tier": "New",
+    "purchase_count": 26,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 42,
+    "customer_tier": "New",
+    "purchase_count": 8,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": true,
+    "revenue": 89.82,
+    "profit": 9.164
+  },
+  {
+    "customer_id": 52,
+    "customer_tier": "New",
+    "purchase_count": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": true,
+    "revenue": 48.98,
+    "profit": 3.2264
+  },
+  {
+    "customer_id": 44,
+    "customer_tier": "New",
+    "purchase_count": 2,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 0,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 43,
+    "customer_tier": "New",
+    "purchase_count": 3,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": true,
+    "revenue": 14.17,
+    "profit": 2.1869
+  },
+  {
+    "customer_id": 33,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 25,
+    "customer_tier": "New",
+    "purchase_count": 16,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 42,
+    "customer_tier": "New",
+    "purchase_count": 8,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 49,
+    "customer_tier": "New",
+    "purchase_count": 4,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 53,
+    "customer_tier": "New",
+    "purchase_count": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": true,
+    "revenue": 33.54,
+    "profit": 2.8762
+  },
+  {
+    "customer_id": 27,
+    "customer_tier": "New",
+    "purchase_count": 1,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 0,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 14,
+    "customer_tier": "New",
+    "purchase_count": 8,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 12,
+    "customer_tier": "New",
+    "purchase_count": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 28,
+    "customer_tier": "New",
+    "purchase_count": 25,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": true,
+    "revenue": 43.72,
+    "profit": 3.6178
+  },
+  {
+    "customer_id": 31,
+    "customer_tier": "New",
+    "purchase_count": 25,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 6,
+    "customer_tier": "New",
+    "purchase_count": 25,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 16,
+    "customer_tier": "New",
+    "purchase_count": 11,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": true,
+    "revenue": 30.88,
+    "profit": 1.516
+  },
+  {
+    "customer_id": 12,
+    "customer_tier": "New",
+    "purchase_count": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 32,
+    "customer_tier": "New",
+    "purchase_count": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 45,
+    "customer_tier": "New",
+    "purchase_count": 1,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 0,
+    "purchased": true,
+    "revenue": 35.88,
+    "profit": 3.3666
+  },
+  {
+    "customer_id": 28,
+    "customer_tier": "New",
+    "purchase_count": 26,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 35,
+    "customer_tier": "New",
+    "purchase_count": 5,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 42,
+    "customer_tier": "New",
+    "purchase_count": 8,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": true,
+    "revenue": 49.1,
+    "profit": 3.7602
+  },
+  {
+    "customer_id": 12,
+    "customer_tier": "New",
+    "purchase_count": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 10,
+    "purchased": true,
+    "revenue": 18.4,
+    "profit": 0.8897
+  },
+  {
+    "customer_id": 33,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 13,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 37,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 29,
+    "customer_tier": "New",
+    "purchase_count": 4,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 24,
+    "customer_tier": "New",
+    "purchase_count": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 38,
+    "customer_tier": "New",
+    "purchase_count": 1,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 0,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 41,
+    "customer_tier": "New",
+    "purchase_count": 8,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 19,
+    "customer_tier": "New",
+    "purchase_count": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 4,
+    "customer_tier": "New",
+    "purchase_count": 9,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 29,
+    "customer_tier": "New",
+    "purchase_count": 5,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 20,
+    "customer_tier": "New",
+    "purchase_count": 5,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 48,
+    "customer_tier": "New",
+    "purchase_count": 15,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 35,
+    "customer_tier": "New",
+    "purchase_count": 6,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 17,
+    "customer_tier": "New",
+    "purchase_count": 2,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 49,
+    "customer_tier": "New",
+    "purchase_count": 4,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": true,
+    "revenue": 50.72,
+    "profit": 1.5546
+  },
+  {
+    "customer_id": 54,
+    "customer_tier": "New",
+    "purchase_count": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 20,
+    "customer_tier": "New",
+    "purchase_count": 6,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 2,
+    "customer_tier": "New",
+    "purchase_count": 25,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 3,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 17,
+    "customer_tier": "New",
+    "purchase_count": 2,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 0,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 15,
+    "customer_tier": "New",
+    "purchase_count": 1,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": true,
+    "revenue": 16.04,
+    "profit": 3.143
+  },
+  {
+    "customer_id": 20,
+    "customer_tier": "New",
+    "purchase_count": 6,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": true,
+    "revenue": 79.89,
+    "profit": 10.5863
+  },
+  {
+    "customer_id": 43,
+    "customer_tier": "New",
+    "purchase_count": 3,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 20,
+    "customer_tier": "New",
+    "purchase_count": 6,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 25,
+    "customer_tier": "New",
+    "purchase_count": 16,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": true,
+    "revenue": 9.46,
+    "profit": 0.6599
+  },
+  {
+    "customer_id": 23,
+    "customer_tier": "New",
+    "purchase_count": 7,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 44,
+    "customer_tier": "New",
+    "purchase_count": 3,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 54,
+    "customer_tier": "New",
+    "purchase_count": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 25,
+    "customer_tier": "New",
+    "purchase_count": 17,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 3,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 41,
+    "customer_tier": "New",
+    "purchase_count": 8,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 7,
+    "customer_tier": "New",
+    "purchase_count": 2,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 0,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 22,
+    "customer_tier": "New",
+    "purchase_count": 2,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 0,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 2,
+    "customer_tier": "New",
+    "purchase_count": 25,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 1,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": true,
+    "revenue": 46.78,
+    "profit": 7.093
+  },
+  {
+    "customer_id": 54,
+    "customer_tier": "New",
+    "purchase_count": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 20,
+    "customer_tier": "New",
+    "purchase_count": 7,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 8,
+    "customer_tier": "New",
+    "purchase_count": 16,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 9,
+    "customer_tier": "New",
+    "purchase_count": 7,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 31,
+    "customer_tier": "New",
+    "purchase_count": 26,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 48,
+    "customer_tier": "New",
+    "purchase_count": 16,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 23,
+    "customer_tier": "New",
+    "purchase_count": 7,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 6,
+    "customer_tier": "New",
+    "purchase_count": 25,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": true,
+    "revenue": 51.42,
+    "profit": 2.3948
+  },
+  {
+    "customer_id": 13,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 16,
+    "customer_tier": "New",
+    "purchase_count": 11,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 48,
+    "customer_tier": "New",
+    "purchase_count": 16,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 28,
+    "customer_tier": "New",
+    "purchase_count": 26,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 47,
+    "customer_tier": "New",
+    "purchase_count": 26,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 8,
+    "customer_tier": "New",
+    "purchase_count": 17,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 49,
+    "customer_tier": "New",
+    "purchase_count": 4,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 6,
+    "customer_tier": "New",
+    "purchase_count": 25,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 42,
+    "customer_tier": "New",
+    "purchase_count": 8,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 25,
+    "customer_tier": "New",
+    "purchase_count": 17,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 45,
+    "customer_tier": "New",
+    "purchase_count": 1,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 0,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 52,
+    "customer_tier": "New",
+    "purchase_count": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 35,
+    "customer_tier": "New",
+    "purchase_count": 6,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 15,
+    "customer_tier": "New",
+    "purchase_count": 1,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 1,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 35,
+    "customer_tier": "New",
+    "purchase_count": 6,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 50,
+    "customer_tier": "New",
+    "purchase_count": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 30,
+    "customer_tier": "New",
+    "purchase_count": 16,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": true,
+    "revenue": 34.67,
+    "profit": 5.5489
+  },
+  {
+    "customer_id": 7,
+    "customer_tier": "New",
+    "purchase_count": 3,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 19,
+    "customer_tier": "New",
+    "purchase_count": 16,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": true,
+    "revenue": 66.68,
+    "profit": 3.8953
+  },
+  {
+    "customer_id": 14,
+    "customer_tier": "New",
+    "purchase_count": 9,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 15,
+    "customer_tier": "New",
+    "purchase_count": 1,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 40,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 14,
+    "customer_tier": "New",
+    "purchase_count": 10,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 8,
+    "customer_tier": "New",
+    "purchase_count": 17,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 15,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 25,
+    "customer_tier": "New",
+    "purchase_count": 18,
+    "eligible_discounts": [
+      10,
+      15,
+      20
+    ],
+    "chosen_discount": 20,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 51,
+    "customer_tier": "New",
+    "purchase_count": 0,
+    "eligible_discounts": [
+      0,
+      5
+    ],
+    "chosen_discount": 0,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 18,
+    "customer_tier": "New",
+    "purchase_count": 7,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 10,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  },
+  {
+    "customer_id": 43,
+    "customer_tier": "New",
+    "purchase_count": 4,
+    "eligible_discounts": [
+      5,
+      10,
+      15
+    ],
+    "chosen_discount": 5,
+    "purchased": false,
+    "revenue": 0.0,
+    "profit": 0.0
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "Random": {
+    "total_profit": 78587.61,
+    "total_discount_given": 24117.75,
+    "total_revenue": 232647.11000000002,
+    "conversions": 4879
+  },
+  "Fixed 10%": {
+    "total_profit": 79280.47,
+    "total_discount_given": 20590.2,
+    "total_revenue": 229085.56,
+    "conversions": 4777
+  },
+  "Rule-based": {
+    "total_profit": 78819.16,
+    "total_discount_given": 23899.5,
+    "total_revenue": 232898.34000000003,
+    "conversions": 4861
+  },
+  "LinUCB": {
+    "total_profit": 76985.29000000001,
+    "total_discount_given": 26749.829999999998,
+    "total_revenue": 232590.89,
+    "conversions": 4931
+  },
+  "Thompson Sampling": {
+    "total_profit": 77319.2,
+    "total_discount_given": 23087.739999999998,
+    "total_revenue": 227930.98,
+    "conversions": 4757
+  },
+  "linucb_gain_vs_fixed_10_rupees": -2295.179999999993
+}

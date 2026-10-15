@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+*.pyo
+
+# Testing and Caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Streamlit Local Secrets
+.streamlit/secrets.toml
+
+# Logs and Scratch Files
+*.log
+scratch_prompts.txt
+phase9_full_prompt.txt
+
+# Generated Submission ZIPs (prevent storing duplicate repository archives in Git)
+submission/*.zip

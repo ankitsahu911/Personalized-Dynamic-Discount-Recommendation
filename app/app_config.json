@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "model_version": "linucb_v1",
+    "model_type": "DisjointLinUCB",
+    "training_rounds": 20000,
+    "seed": 42,
+    "alpha": 1.0,
+    "context_dim": 26,
+    "saved_at": "2026-10-12 01:14:12"
+  },
+  "numeric_inputs": {
+    "Price": {
+      "min": 10.0,
+      "max": 150.0,
+      "default": 44.53,
+      "p01": 12.23,
+      "p99": 113.15,
+      "step": 1.0,
+      "unit": "Rs",
+      "label": "Retail Price",
+      "help": "Base catalogue selling price of the item before discount."
+    },
+    "CompetitorPricing": {
+      "min": 10.0,
+      "max": 150.0,
+      "default": 44.72,
+      "p01": 11.87,
+      "p99": 115.49,
+      "step": 1.0,
+      "unit": "Rs",
+      "label": "Competitor Price",
+      "help": "Observed market benchmark price from primary local competitor."
+    },
+    "InventoryLevel": {
+      "min": 10,
+      "max": 600,
+      "default": 250,
+      "p01": 45,
+      "p99": 520,
+      "step": 5,
+      "unit": "units",
+      "label": "Current Stock Level",
+      "help": "On-hand warehouse/shelf inventory units available."
+    },
+    "PurchaseCount": {
+      "min": 0,
+      "max": 30,
+      "default": 3,
+      "p01": 0,
+      "p99": 15,
+      "step": 1,
+      "unit": "purchases",
+      "label": "Lifetime Purchases",
+      "help": "Total completed orders by this customer to date (determines Loyalty Tier)."
+    },
+    "RecencyDays": {
+      "min": 0,
+      "max": 180,
+      "default": 14,
+      "p01": 1,
+      "p99": 120,
+      "step": 1,
+      "unit": "days",
+      "label": "Recency (Days Since Last Order)",
+      "help": "Number of days elapsed since the customer's previous transaction."
+    },
+    "CurrentBasketValue": {
+      "min": 20.0,
+      "max": 500.0,
+      "default": 150.0,
+      "p01": 50.0,
+      "p99": 450.0,
+      "step": 5.0,
+      "unit": "Rs",
+      "label": "Current Basket Value",
+      "help": "Total gross rupee value of items currently in shopper's cart."
+    },
+    "CustomerPriceSensitivity": {
+      "min": 0.55,
+      "max": 1.55,
+      "default": 1.0,
+      "p01": 0.55,
+      "p99": 1.5,
+      "step": 0.01,
+      "unit": "index",
+      "label": "Customer Price Sensitivity",
+      "help": "Estimated elasticity coefficient (1.0 = average; >1.0 = discount-seeking)."
+    }
+  },
+  "categorical_inputs": {
+    "Category": {
+      "options": [
+        "Electronics",
+        "Groceries",
+        "Furniture",
+        "Toys",
+        "Clothing"
+      ],
+      "default": "Electronics",
+      "label": "Product Category",
+      "help": "Merchandise department."
+    },
+    "Region": {
+      "options": [
+        "West",
+        "South",
+        "North",
+        "East"
+      ],
+      "default": "West",
+      "label": "Store Region",
+      "help": "Geographic retail district."
+    },
+    "Seasonality": {
+      "options": [
+        "Spring",
+        "Summer",
+        "Autumn",
+        "Winter"
+      ],
+      "default": "Spring",
+      "label": "Retail Season",
+      "help": "Calendar trading season."
+    },
+    "DemandLevel": {
+      "options": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "default": "Medium",
+      "label": "Demand Velocity",
+      "help": "Product sales velocity relative to department peers (Low / Medium / High)."
+    }
+  },
+  "constants": {
+    "ACTIONS": [
+      0,
+      5,
+      10,
+      15,
+      20
+    ],
+    "DEFAULT_REGULAR_CUTOFF": 3,
+    "DEFAULT_LOYAL_CUTOFF": 10,
+    "ASSUMED_MARGIN_RATE": 0.4,
+    "DEFAULT_MARGIN_FLOOR": 0.0,
+    "MAX_MARGIN_FLOOR": 50.0,
+    "TIER_DISCOUNTS": {
+      "New": [
+        0,
+        5
+      ],
+      "Regular": [
+        5,
+        10,
+        15
+      ],
+      "Loyal": [
+        10,
+        15,
+        20
+      ]
+    }
+  }
+}

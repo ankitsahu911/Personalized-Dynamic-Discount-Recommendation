@@ -1,0 +1,108 @@
+{
+  "model_type": "DisjointLinUCB",
+  "arms": [
+    0,
+    5,
+    10,
+    15,
+    20
+  ],
+  "context_dim": 26,
+  "alpha": 1.0,
+  "n_rounds": 20000,
+  "main_seed": 42,
+  "sequence_file": "training_rounds_seed42_n20000.pkl",
+  "saved_at": "2026-10-12 01:14:12",
+  "preprocessing": {
+    "scaling_method": "z-score",
+    "context_dim": 26,
+    "feature_names": [
+      "Price",
+      "InventoryLevel",
+      "CompetitorPricing",
+      "DemandIndex",
+      "CurrentBasketValue",
+      "PurchaseCount",
+      "RecencyDays",
+      "CustomerPriceSensitivity",
+      "Promotion",
+      "Category_Electronics",
+      "Category_Groceries",
+      "Category_Furniture",
+      "Category_Toys",
+      "Category_Clothing",
+      "Region_West",
+      "Region_South",
+      "Region_North",
+      "Region_East",
+      "Seasonality_Spring",
+      "Seasonality_Summer",
+      "Seasonality_Autumn",
+      "Seasonality_Winter",
+      "LoyaltyTier_New",
+      "LoyaltyTier_Regular",
+      "LoyaltyTier_Loyal",
+      "Bias"
+    ],
+    "numeric_stats": {
+      "Price": {
+        "mean": 52.76,
+        "std": 27.48
+      },
+      "InventoryLevel": {
+        "mean": 155.0,
+        "std": 83.5
+      },
+      "CompetitorPricing": {
+        "mean": 52.76,
+        "std": 29.7
+      },
+      "DemandIndex": {
+        "mean": 0.5,
+        "std": 0.289
+      },
+      "CurrentBasketValue": {
+        "mean": 275.0,
+        "std": 130.0
+      },
+      "PurchaseCount": {
+        "mean": 7.0,
+        "std": 8.0
+      },
+      "RecencyDays": {
+        "mean": 30.0,
+        "std": 35.0
+      },
+      "CustomerPriceSensitivity": {
+        "mean": 1.0025,
+        "std": 0.2138
+      }
+    },
+    "categorical_values": {
+      "Category": [
+        "Electronics",
+        "Groceries",
+        "Furniture",
+        "Toys",
+        "Clothing"
+      ],
+      "Region": [
+        "West",
+        "South",
+        "North",
+        "East"
+      ],
+      "Seasonality": [
+        "Spring",
+        "Summer",
+        "Autumn",
+        "Winter"
+      ],
+      "LoyaltyTier": [
+        "New",
+        "Regular",
+        "Loyal"
+      ]
+    }
+  }
+}
