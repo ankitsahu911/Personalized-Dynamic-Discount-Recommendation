@@ -1,6 +1,6 @@
 """
 Interactive Retail Dynamic Discount Recommender
-Streamlit Web Application — Amazon SmartBiz E-Commerce Portal
+Streamlit Web Application — Dynamic Discount Studio
 UI ONLY: Layout, widgets, and charts. All business math is delegated to app/recommender.py.
 """
 
@@ -18,7 +18,7 @@ import streamlit as st
 
 # MUST BE THE FIRST STREAMLIT CALL
 st.set_page_config(
-    page_title="SmartBiz AI | Dynamic Pricing & Discount Optimization",
+    page_title="Dynamic Discount Studio | Pricing Optimization",
     page_icon="🛍️",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -67,178 +67,131 @@ POLICY_DASHES = {
 }
 
 # ---------------------------------------------------------------------------
-# AMAZON SMARTBIZ STYLING: HIGH-CONTRAST, LARGE TYPOGRAPHY, CLEAN CARDS
-# HIDES STREAMLIT "DEPLOY" BUTTON AND 3-DOTS MENU PER SPECIFICATION
+# APPLICATION STYLES
 # ---------------------------------------------------------------------------
 st.markdown(
     """
     <style>
-    /* 1. COMPLETELY HIDE STREAMLIT TOP-RIGHT 'DEPLOY' BUTTON & 3-DOTS MENU */
-    #MainMenu {visibility: hidden !important; display: none !important;}
-    header[data-testid="stHeader"] {visibility: hidden !important; display: none !important; height: 0 !important;}
-    .stDeployButton {display: none !important; visibility: hidden !important;}
-    [data-testid="stToolbar"] {display: none !important; visibility: hidden !important;}
-    [data-testid="stDecoration"] {display: none !important; visibility: hidden !important;}
-    [data-testid="stStatusWidget"] {display: none !important; visibility: hidden !important;}
-    footer {visibility: hidden !important; display: none !important;}
-
-    /* 2. PAGE CONTAINER & SPACING */
+    #MainMenu, .stDeployButton, [data-testid="stToolbar"],
+    [data-testid="stDecoration"], [data-testid="stStatusWidget"], footer {
+        display: none !important;
+    }
+    header[data-testid="stHeader"] {
+        background: transparent !important;
+        height: 0 !important;
+    }
     .block-container {
-        padding-top: 1.0rem !important;
-        padding-bottom: 2.5rem !important;
-        padding-left: 2.2rem !important;
-        padding-right: 2.2rem !important;
-        max-width: 98% !important;
+        max-width: 1440px !important;
+        padding: 0.55rem 2rem 3rem !important;
     }
-
-    /* 3. AMAZON SMARTBIZ LARGE TYPOGRAPHY */
-    h1 {
-        font-size: 2.45rem !important;
-        font-weight: 800 !important;
-        color: #0C232A !important;
-        margin-bottom: 0.25rem !important;
-        letter-spacing: -0.025em !important;
-        line-height: 1.2 !important;
+    h1, h2, h3 {
+        color: #102A43 !important;
+        letter-spacing: 0 !important;
     }
-    h2 {
-        font-size: 1.85rem !important;
-        font-weight: 700 !important;
-        color: #0C232A !important;
-        margin-top: 1.1rem !important;
-        margin-bottom: 0.5rem !important;
-        letter-spacing: -0.02em !important;
+    h1 { font-size: 2rem !important; font-weight: 750 !important; }
+    h2 { font-size: 1.5rem !important; font-weight: 700 !important; }
+    h3 { font-size: 1.15rem !important; font-weight: 700 !important; }
+    [data-testid="stAppViewContainer"] {
+        background: #F7FAFC;
     }
-    h3 {
-        font-size: 1.4rem !important;
-        font-weight: 700 !important;
-        color: #0F172A !important;
-        margin-top: 0.8rem !important;
-        margin-bottom: 0.4rem !important;
-    }
-    h4 {
-        font-size: 1.15rem !important;
-        font-weight: 700 !important;
-        color: #1E293B !important;
-        margin-top: 0.6rem !important;
-        margin-bottom: 0.3rem !important;
-    }
-    p, span, li {
-        font-size: 1.08rem !important;
-        color: #334155 !important;
-        line-height: 1.6 !important;
-    }
-
-    /* 4. SIDEBAR MERCHANDISING CONTROLS (LARGE, CLEAR, HIGH READABILITY) */
     [data-testid="stSidebar"] {
-        background-color: #F8FAFC !important;
+        background-color: #FFFFFF !important;
         border-right: 1px solid #E2E8F0 !important;
-        min-width: 325px !important;
+        min-width: 340px !important;
     }
-    [data-testid="stSidebar"] label p,
-    [data-testid="stSidebar"] label div,
-    [data-testid="stSidebar"] label span {
-        font-size: 1.12rem !important;
-        font-weight: 700 !important;
-        color: #0C232A !important;
-        margin-bottom: 3px !important;
+    [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+        gap: 0.4rem;
     }
-    [data-testid="stSidebar"] input,
-    [data-testid="stSidebar"] select,
-    [data-testid="stSidebar"] .stSelectbox {
-        font-size: 1.10rem !important;
-        font-weight: 600 !important;
-        height: 46px !important;
-        border-radius: 9px !important;
+    [data-testid="stSidebar"] [data-testid="stWidgetLabel"] p {
+        color: #1E3A4C !important;
+        font-size: 0.92rem !important;
+        font-weight: 650 !important;
+        line-height: 1.35 !important;
     }
-    [data-testid="stSidebar"] button {
-        font-size: 1.10rem !important;
-        font-weight: 700 !important;
-        padding: 11px 18px !important;
-        border-radius: 10px !important;
+    [data-testid="stSidebar"] [data-testid="stNumberInput"],
+    [data-testid="stSidebar"] [data-testid="stSelectbox"] {
+        margin-bottom: 0.6rem;
     }
-    [data-testid="stSidebar"] [data-testid="stNumberInputStepDown"],
-    [data-testid="stSidebar"] [data-testid="stNumberInputStepUp"] {
-        width: 34px !important;
-        height: 34px !important;
+    [data-testid="stSidebar"] input, [data-testid="stSidebar"] [data-baseweb="select"] > div {
+        min-height: 2.55rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 6px !important;
     }
-
-    /* 5. TOP HORIZONTAL NAVIGATION (ONE LEFT TO ANOTHER, SMARTBIZ PILLS) */
-    div[data-testid="stRadio"] > div[role="radiogroup"] {
+    [data-testid="stSidebar"] .stButton > button {
+        width: 100%; border-radius: 6px; font-weight: 650;
+    }
+    div[data-testid="stMain"] div[data-testid="stRadio"] > div[role="radiogroup"] {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
-        gap: 12px !important;
-        background-color: #F1F5F9 !important;
-        padding: 10px 14px !important;
-        border-radius: 14px !important;
-        border: 1px solid #CBD5E1 !important;
-        margin-top: 10px !important;
-        margin-bottom: 22px !important;
+        gap: 0.45rem !important;
+        margin: 0.5rem 0 1.5rem !important;
     }
-    div[data-testid="stRadio"] > div[role="radiogroup"] > label {
+    div[data-testid="stMain"] div[data-testid="stRadio"] > div[role="radiogroup"] > label {
         background-color: #FFFFFF !important;
         border: 1px solid #CBD5E1 !important;
-        border-radius: 10px !important;
-        padding: 10px 20px !important;
-        font-size: 1.08rem !important;
-        font-weight: 700 !important;
+        border-radius: 6px !important;
+        padding: 0.45rem 0.75rem !important;
+        font-size: 0.9rem !important;
+        font-weight: 650 !important;
         color: #0F172A !important;
-        cursor: pointer !important;
-        transition: all 0.15s ease-in-out !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
     }
-    div[data-testid="stRadio"] > div[role="radiogroup"] > label:hover {
-        background-color: #E2E8F0 !important;
-        border-color: #94A3B8 !important;
-    }
-    div[data-testid="stRadio"] > div[role="radiogroup"] > label > div:first-child {
+    div[data-testid="stMain"] div[data-testid="stRadio"] > div[role="radiogroup"] > label > div:first-child {
         display: none !important;
     }
-    div[data-testid="stRadio"] > div[role="radiogroup"] > label:has(input:checked) {
-        background-color: #0C232A !important;
+    div[data-testid="stMain"] div[data-testid="stRadio"] > div[role="radiogroup"] > label:has(input:checked) {
+        background-color: #0F766E !important;
         color: #FFFFFF !important;
-        border-color: #0C232A !important;
-        box-shadow: 0 4px 10px rgba(12, 35, 42, 0.3) !important;
+        border-color: #0F766E !important;
     }
-    div[data-testid="stRadio"] > div[role="radiogroup"] > label:has(input:checked) p {
+    div[data-testid="stMain"] div[data-testid="stRadio"] > div[role="radiogroup"] > label:has(input:checked) p {
         color: #FFFFFF !important;
     }
-
-    /* 6. SMARTBIZ HERO & METRIC CARDS */
-    .smartbiz-hero {
-        background: linear-gradient(135deg, #0C232A 0%, #163842 100%);
-        border-radius: 20px;
-        padding: 38px 44px;
+    .portal-hero {
+        background: #103B4C;
+        border-radius: 8px;
+        padding: 2rem;
         color: #FFFFFF;
-        margin-bottom: 24px;
-        box-shadow: 0 10px 30px rgba(12, 35, 42, 0.15);
+        margin-bottom: 1.25rem;
     }
-    .smartbiz-hero h1 {
+    .portal-hero h1, .portal-hero h2, .portal-hero h3, .portal-hero p, .portal-hero span {
         color: #FFFFFF !important;
-        font-size: 2.7rem !important;
     }
-    .smartbiz-hero p {
-        color: #E2E8F0 !important;
-        font-size: 1.2rem !important;
-        max-width: 820px;
+    .brand-lockup { display: flex; align-items: center; gap: 0.7rem; margin: 0.2rem 0 1.1rem; }
+    .brand-mark {
+        display: inline-flex; align-items: center; justify-content: center; width: 2.15rem; height: 2.15rem;
+        border-radius: 6px; background: #0F766E; color: #FFFFFF; font-size: 0.7rem; font-weight: 800;
+        letter-spacing: 0.06em;
     }
-    [data-testid="stMetricValue"] {
-        font-size: 2.3rem !important;
-        font-weight: 800 !important;
-        color: #0C232A !important;
-    }
-    [data-testid="stMetricLabel"] {
-        font-size: 1.0rem !important;
-        font-weight: 700 !important;
-        color: #475569 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.05em !important;
-    }
+    .brand-name { color: #102A43; font-size: 1rem; font-weight: 750; }
+    .page-kicker { color: #0F766E; font-size: 0.76rem; font-weight: 750; letter-spacing: 0.07em; text-transform: uppercase; }
+    .page-heading { color: #102A43; font-size: 1.85rem; font-weight: 750; margin: 0.15rem 0 0.35rem; }
+    .page-description { color: #66788A; font-size: 1rem; margin: 0 0 1.25rem; }
+    .insight-card { background: #FFFFFF; border: 1px solid #D9E2EC; border-radius: 8px; padding: 1.05rem; }
+    .insight-card--teal { border-top: 3px solid #0F766E; }
+    .insight-card--blue { border-top: 3px solid #2563EB; }
+    .insight-card--amber { border-top: 3px solid #D97706; }
+    .table-note { color: #66788A; font-size: 0.9rem; margin: 0.25rem 0 0.75rem; }
+    .login-shell { max-width: 460px; margin: 9vh auto 0; }
+    .login-brand { color: #0F766E; font-weight: 800; font-size: 1.1rem; }
+    .login-subtitle { color: #52616B; font-size: 1rem; margin: 0.4rem 0 1.5rem; }
+    [data-testid="stForm"] { border: 1px solid #DCE3E8; border-radius: 8px; padding: 1.5rem; background: #FFFFFF; }
+    [data-testid="stMetric"] { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1rem; }
+    [data-testid="stMetricLabel"] p { color: #52616B !important; font-size: 0.82rem !important; }
+    [data-testid="stMetricValue"] { color: #102A43 !important; font-size: 1.55rem !important; }
     .product-img-card {
-        border-radius: 14px 14px 0 0;
-        width: 100%;
-        height: 175px;
-        object-fit: cover;
+        border-radius: 6px; width: 100%; height: 168px; object-fit: cover; display: block;
+    }
+    .stButton > button[kind="primary"] {
+        background: #0F766E !important; color: #FFFFFF !important; border-color: #0F766E !important;
+    }
+    .stButton > button:not([kind="primary"]) { border-color: #9FB3C8 !important; color: #102A43 !important; }
+    .stButton > button:focus-visible { outline: 3px solid #7DD3C7 !important; outline-offset: 2px !important; }
+    [data-testid="stDataFrame"] { border: 1px solid #D9E2EC; border-radius: 8px; overflow: hidden; }
+    @media (max-width: 800px) {
+        .block-container { padding: 1rem !important; }
+        .portal-hero { padding: 1.25rem; }
+        [data-testid="stSidebar"] { min-width: 290px !important; }
     }
     </style>
     """,
@@ -644,7 +597,20 @@ if "user_name" not in st.session_state:
 if "user_role" not in st.session_state:
     st.session_state["user_role"] = "Pricing Operations Director"
 if "nav_page" not in st.session_state:
-    st.session_state["nav_page"] = "🏠 Store Overview & Catalog"
+    st.session_state["nav_page"] = "Store Overview & Catalog"
+
+LEGACY_NAV_PAGES = {
+    "🏠 Store Overview & Catalog": "Store Overview & Catalog",
+    "🎯 Live Pricing Simulator": "Live Pricing Simulator",
+    "🔮 Market Sensitivity & What-If Lab": "Market Sensitivity & What-If Lab",
+    "🛡️ Margin Guardrails Studio": "Margin Guardrails Studio",
+    "📊 Policy Performance & ROI Audits": "Policy Performance & ROI Audits",
+    "📘 Knowledge Blog & Architecture": "Knowledge Blog & Architecture",
+    "ℹ️ Model Architecture & Transparency": "Model Architecture & Transparency",
+}
+st.session_state["nav_page"] = LEGACY_NAV_PAGES.get(
+    st.session_state["nav_page"], st.session_state["nav_page"]
+)
 
 
 def handle_login(username_val: str):
@@ -652,13 +618,29 @@ def handle_login(username_val: str):
     st.session_state["authenticated"] = True
     st.session_state["user_name"] = "Sujan" if not username_val else username_val.split("@")[0].title()
     st.session_state["user_role"] = "Pricing Operations Director"
-    st.session_state["nav_page"] = "🏠 Store Overview & Catalog"
+    st.session_state["nav_page"] = "Store Overview & Catalog"
 
 
 def handle_logout():
     """Logs out and resets authentication state."""
     st.session_state["authenticated"] = False
-    st.session_state["nav_page"] = "🏠 Store Overview & Catalog"
+    st.session_state["nav_page"] = "Store Overview & Catalog"
+
+
+def render_page_heading(kicker: str, title: str, description: str) -> None:
+    """Render a consistent, compact page header with the application mark."""
+    st.markdown(
+        f"""
+        <div class="brand-lockup">
+            <span class="brand-mark">DD</span>
+            <span class="brand-name">Dynamic Discount Studio</span>
+        </div>
+        <div class="page-kicker">{html.escape(kicker)}</div>
+        <div class="page-heading">{html.escape(title)}</div>
+        <p class="page-description">{html.escape(description)}</p>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -666,146 +648,27 @@ def handle_logout():
 # ---------------------------------------------------------------------------
 
 if not st.session_state["authenticated"]:
-    # Amazon SmartBiz Brand Header
-    st.markdown(
-        """
-        <div style="text-align: center; padding: 15px 0 25px 0;">
-            <div style="font-size: 34px; font-weight: 900; color: #0C232A; letter-spacing: -0.04em; display: inline-flex; align-items: baseline; gap: 4px;">
-                smart<span style="color: #00A896;">biz</span>
-                <span style="font-size: 15px; font-weight: 600; color: #64748B; margin-left: 6px;">by amazon &middot; AI Dynamic Pricing Portal</span>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    col_hero, col_login = st.columns([1.25, 1], gap="large")
-
-    with col_hero:
-        st.title("⚡ SmartBiz AI Pricing Engine")
+    _, login_column, _ = st.columns([1, 1.35, 1])
+    with login_column:
+        st.markdown('<div class="login-brand">DYNAMIC DISCOUNT STUDIO</div>', unsafe_allow_html=True)
+        st.title("Merchant sign in")
         st.markdown(
-            """
-            <div style="background-color: #FBF8F3; border-radius: 20px; padding: 34px 38px; border: 1px solid #F1ECE1; margin-bottom: 20px;">
-                <h1 style="font-size: 3.1rem !important; font-weight: 800; color: #0C232A; line-height: 1.15; margin: 0 0 16px 0; letter-spacing: -0.03em;">
-                    Build, Launch & Grow Your D2C Business
-                </h1>
-                <p style="font-size: 1.22rem !important; color: #475569; line-height: 1.6; margin-bottom: 24px;">
-                    Create a stunning e-commerce website powered by Amazon. SmartBiz's website builder provides all the tools you need to grow your business effortlessly.
-                </p>
-                <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
-                    <span style="background: #0C232A; color: #FFFFFF; padding: 10px 22px; border-radius: 9999px; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 8px;">
-                        Sign up for free &rarr;
-                    </span>
-                    <span style="color: #00A896; font-weight: 700; font-size: 15px;">
-                        ⚡ 100% Inviolable Margin Guardrails
-                    </span>
-                </div>
-            </div>
-            """,
+            '<p class="login-subtitle">AI-powered dynamic pricing and merchandising for safer, more profitable discount decisions.</p>',
             unsafe_allow_html=True,
         )
-
-        with st.container(border=True):
-            st.markdown("### 🔐 Merchant Portal Sign In")
-            st.caption("Access live contextual discount recommendations, guardrail telemetry, and ROI audits.")
-
-            if st.button("🚀 Instant 1-Click Demo Login as Pricing Director", use_container_width=True, type="primary"):
-                handle_login("sujan@smartbiz.nexus")
-                st.rerun()
-
-            st.markdown("<div style='text-align: center; color: #94A3B8; font-weight: 700; font-size: 13px; margin: 14px 0;'>— OR ENTER CREDENTIALS —</div>", unsafe_allow_html=True)
-
-            col_l_e, col_l_p = st.columns(2)
-            with col_l_e:
-                login_email = st.text_input("Store Manager Email", value="sujan@smartbiz.nexus", key="login_email_input")
-            with col_l_p:
-                login_pass = st.text_input("Password", value="••••••••", type="password", key="login_pass_input")
-
-            st.checkbox("Keep me signed in for 30 days", value=True)
-
-            if st.button("Sign In to Merchant Hub", use_container_width=True):
-                handle_login(login_email)
-                st.rerun()
-
-    with col_login:
-        st.markdown(
-            """
-            <div style="background: #FFFFFF; border-radius: 20px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border: 1px solid #E2E8F0; text-align: center;">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop&q=80" style="width: 100%; height: 260px; object-fit: cover; border-radius: 14px; margin-bottom: 18px;" alt="Entrepreneur with laptop"/>
-                
-                <div style="display: flex; gap: 14px; justify-content: space-between; text-align: left;">
-                    <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px;">
-                        <small style="color: #64748B; font-weight: 700; text-transform: uppercase;">Order Summary</small>
-                        <div style="font-size: 18px; font-weight: 800; color: #0C232A; margin: 4px 0 8px 0;">₹2,499.00</div>
-                        <div style="background-color: #00A896; color: #FFFFFF; text-align: center; padding: 6px 12px; border-radius: 8px; font-weight: 700; font-size: 13px;">
-                            Pay Now
-                        </div>
-                    </div>
-                    <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px;">
-                        <small style="color: #64748B; font-weight: 700; text-transform: uppercase;">Sales per week</small>
-                        <div style="font-size: 20px; font-weight: 800; color: #00A896; margin: 4px 0 4px 0;">+24.3%</div>
-                        <div style="display: flex; align-items: flex-end; gap: 4px; height: 32px; padding-top: 6px;">
-                            <span style="background: #CBD5E1; width: 14%; height: 40%; border-radius: 3px;"></span>
-                            <span style="background: #CBD5E1; width: 14%; height: 55%; border-radius: 3px;"></span>
-                            <span style="background: #CBD5E1; width: 14%; height: 45%; border-radius: 3px;"></span>
-                            <span style="background: #00A896; width: 14%; height: 75%; border-radius: 3px;"></span>
-                            <span style="background: #00A896; width: 14%; height: 85%; border-radius: 3px;"></span>
-                            <span style="background: #00C49F; width: 14%; height: 100%; border-radius: 3px;"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    st.markdown("<div style='height: 20px;'></div>", unsafe_allow_html=True)
-
-    # Section 2: Dark Teal (#07282F) from Image 5
-    st.markdown(
-        """
-        <div style="background-color: #07282F; border-radius: 20px; padding: 38px 44px; color: #FFFFFF; margin-bottom: 26px;">
-            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: center;">
-                <div style="border: 1px solid #164853; border-radius: 16px; padding: 30px;">
-                    <h2 style="color: #FFFFFF !important; font-size: 2.4rem !important; font-weight: 800; line-height: 1.2; margin: 0 0 16px 0;">
-                        Run Your Store at Low Cost
-                    </h2>
-                    <p style="color: #E2E8F0; font-size: 1.15rem; line-height: 1.6; margin-bottom: 14px;">
-                        Start your website with no setup fees*, no subscriptions*, and low shipping rates.
-                    </p>
-                    <p style="color: #94A3B8; font-size: 1.12rem; line-height: 1.6; margin-bottom: 18px;">
-                        Build and grow your business with a clear focus on your products, not your expenses.<br>
-                        <span style="color: #64748B; font-size: 13px;">* Free until Oct 2026.</span>
-                    </p>
-                    <div style="display: inline-block; background: #0F3B44; color: #00C49F; padding: 6px 14px; border-radius: 9999px; font-weight: 700; font-size: 13px;">
-                        🛡️ Zero Below-Cost Margin Violations Guaranteed
-                    </div>
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 16px;">
-                    <div style="background: linear-gradient(135deg, #00A896 0%, #028090 100%); border-radius: 14px; padding: 20px 24px; color: #FFFFFF;">
-                        <span style="background: rgba(0,0,0,0.25); padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 700;">
-                            ⚡ Automations & LinUCB
-                        </span>
-                        <h4 style="color: #FFFFFF !important; margin: 8px 0 4px 0; font-size: 18px;">Everything You Need, Built In</h4>
-                        <p style="color: #E0F2FE; font-size: 13px; margin: 0;">
-                            Order management, contextual bandit personalization, and sub-millisecond inference algorithms included by default.
-                        </p>
-                    </div>
-                    <div style="background: linear-gradient(135deg, #FF9900 0%, #F59E0B 100%); border-radius: 14px; padding: 20px 24px; color: #FFFFFF;">
-                        <span style="background: rgba(0,0,0,0.25); padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 700;">
-                            🛡️ Amazon Trust Advantage
-                        </span>
-                        <h4 style="color: #FFFFFF !important; margin: 8px 0 4px 0; font-size: 18px;">Commercial Guardrails Architecture</h4>
-                        <p style="color: #FFFBEB; font-size: 13px; margin: 0;">
-                            Built-in unit margin floors and customer loyalty discount ceilings prevent loss-making markdowns before they are ever served.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+        with st.form("merchant_login", clear_on_submit=False):
+            login_email = st.text_input("Email address", placeholder="you@store.com", key="login_email_input")
+            st.text_input("Password", type="password", key="login_pass_input")
+            st.checkbox("Keep me signed in", value=True, key="keep_signed_in")
+            submitted = st.form_submit_button("Sign in", type="primary", use_container_width=True)
+            if submitted:
+                if login_email.strip():
+                    handle_login(login_email)
+                    st.rerun()
+                st.error("Enter an email address to continue.")
+        if st.button("Use pricing director demo", use_container_width=True):
+            handle_login("sujan@smartbiz.nexus")
+            st.rerun()
 
     st.stop()
 
@@ -850,7 +713,7 @@ def load_product_into_simulator(prod: dict):
     st.session_state["input_CustomerPriceSensitivity"] = float(prod["elasticity"])
     st.session_state["input_Promotion"] = bool(prod["promo"])
     st.session_state["input_Region"] = str(prod["region"])
-    st.session_state["nav_page"] = "🎯 Live Pricing Simulator"
+    st.session_state["nav_page"] = "Live Pricing Simulator"
 
 
 def reset_situation_inputs():
@@ -873,15 +736,15 @@ def reset_guardrails():
 
 col_h1, col_h2 = st.columns([3, 1])
 with col_h1:
-    st.title(f"🛍️ Welcome Back, {st.session_state['user_name']}")
-    st.caption("SmartCommerce Merchandising Portal · Disjoint LinUCB Dynamic Engine Active")
+    st.title(f"Welcome back, {st.session_state['user_name']}")
+    st.caption("Dynamic Discount Studio · Disjoint LinUCB pricing engine")
 with col_h2:
     col_u_pill, col_u_out = st.columns([3, 2])
     with col_u_pill:
         st.markdown(
             f"""
             <div style="text-align: right; padding-top: 4px;">
-                <strong style="color: #0C232A; font-size: 16px;">👤 {st.session_state['user_name']}</strong><br>
+                <strong style="color: #0C232A; font-size: 16px;">{st.session_state['user_name']}</strong><br>
                 <small style="color: #64748B; font-weight: 600;">{st.session_state['user_role']}</small>
             </div>
             """,
@@ -894,13 +757,13 @@ with col_h2:
 nav_selection = st.radio(
     "Console Navigation",
     options=[
-        "🏠 Store Overview & Catalog",
-        "🎯 Live Pricing Simulator",
-        "🔮 Market Sensitivity & What-If Lab",
-        "🛡️ Margin Guardrails Studio",
-        "📊 Policy Performance & ROI Audits",
-        "📘 Knowledge Blog & Architecture",
-        "ℹ️ Model Architecture & Transparency",
+        "Store Overview & Catalog",
+        "Live Pricing Simulator",
+        "Market Sensitivity & What-If Lab",
+        "Margin Guardrails Studio",
+        "Policy Performance & ROI Audits",
+        "Knowledge Blog & Architecture",
+        "Model Architecture & Transparency",
     ],
     horizontal=True,
     label_visibility="collapsed",
@@ -912,30 +775,27 @@ nav_selection = st.radio(
 # SIDEBAR: ACTIVE MERCHANDISING CONTROLS (LARGE, HIGH READABILITY)
 # ---------------------------------------------------------------------------
 
-st.sidebar.markdown("### 🏷️ Merchandising Controls")
-st.sidebar.caption("Fine-tune catalogue pricing, market benchmarks, and shopper loyalty.")
+st.sidebar.markdown("## Merchandising controls")
+st.sidebar.caption("Configure pricing, inventory, demand, and shopper settings.")
 
 # Group 1: Product Inputs
-st.sidebar.markdown("#### Product & Commercials")
-col_p1, col_p2 = st.sidebar.columns(2)
-with col_p1:
-    price_val = st.sidebar.number_input(
-        "Base Price (₹)",
-        min_value=10.0,
-        max_value=150.0,
-        step=1.0,
-        key="input_Price",
-        help="Catalogue selling price of the item before discount.",
-    )
-with col_p2:
-    comp_val = st.sidebar.number_input(
-        "Competitor Price (₹)",
-        min_value=10.0,
-        max_value=150.0,
-        step=1.0,
-        key="input_CompetitorPricing",
-        help="Observed price for matching SKU at competitor.",
-    )
+st.sidebar.markdown("### Product & commercials")
+price_val = st.sidebar.number_input(
+    "Base Price (₹)",
+    min_value=10.0,
+    max_value=150.0,
+    step=1.0,
+    key="input_Price",
+    help="Catalogue selling price of the item before discount.",
+)
+comp_val = st.sidebar.number_input(
+    "Competitor Price (₹)",
+    min_value=10.0,
+    max_value=150.0,
+    step=1.0,
+    key="input_CompetitorPricing",
+    help="Observed price for matching SKU at competitor.",
+)
 
 cat_val = st.sidebar.selectbox(
     "Product Category",
@@ -945,38 +805,31 @@ cat_val = st.sidebar.selectbox(
 )
 
 # Group 2: Inventory & Demand Dynamics
-st.sidebar.markdown("#### Inventory & Demand Dynamics")
-col_i1, col_i2 = st.sidebar.columns(2)
-with col_i1:
-    inv_val = st.sidebar.number_input(
-        "Inventory Stock",
-        min_value=10,
-        max_value=600,
-        step=5,
-        key="input_InventoryLevel",
-        help="Available stock count in warehouse.",
-    )
-with col_i2:
-    demand_val = st.sidebar.selectbox(
-        "Demand Velocity",
-        options=["Low", "Medium", "High"],
-        key="input_DemandLevel",
-        help="Observed sales velocity level.",
-    )
-
-col_i3, col_i4 = st.sidebar.columns(2)
-with col_i3:
-    season_val = st.sidebar.selectbox(
-        "Seasonality",
-        options=["Spring", "Summer", "Autumn", "Winter"],
-        key="input_Seasonality",
-    )
-with col_i4:
-    region_val = st.sidebar.selectbox(
-        "Market Region",
-        options=["North", "South", "East", "West"],
-        key="input_Region",
-    )
+st.sidebar.markdown("### Inventory & demand")
+inv_val = st.sidebar.number_input(
+    "Inventory Stock",
+    min_value=10,
+    max_value=600,
+    step=5,
+    key="input_InventoryLevel",
+    help="Available stock count in warehouse.",
+)
+demand_val = st.sidebar.selectbox(
+    "Demand Velocity",
+    options=["Low", "Medium", "High"],
+    key="input_DemandLevel",
+    help="Observed sales velocity level.",
+)
+season_val = st.sidebar.selectbox(
+    "Seasonality",
+    options=["Spring", "Summer", "Autumn", "Winter"],
+    key="input_Seasonality",
+)
+region_val = st.sidebar.selectbox(
+    "Market Region",
+    options=["North", "South", "East", "West"],
+    key="input_Region",
+)
 
 promo_val = st.sidebar.checkbox(
     "Active Promotional Campaign",
@@ -985,46 +838,39 @@ promo_val = st.sidebar.checkbox(
 )
 
 # Group 3: Customer History & Elasticity
-st.sidebar.markdown("#### Shopper Loyalty Profile")
-col_u1, col_u2 = st.sidebar.columns(2)
-with col_u1:
-    purchases_val = st.sidebar.number_input(
-        "Orders to Date",
-        min_value=0,
-        max_value=30,
-        step=1,
-        key="input_PurchaseCount",
-        help="Customer's lifetime completed orders (governs loyalty tier).",
-    )
-with col_u2:
-    recency_val = st.sidebar.number_input(
-        "Recency (Days)",
-        min_value=0,
-        max_value=180,
-        step=1,
-        key="input_RecencyDays",
-        help="Days since previous order.",
-    )
-
-col_u3, col_u4 = st.sidebar.columns(2)
-with col_u3:
-    basket_val = st.sidebar.number_input(
-        "Basket Value (₹)",
-        min_value=20.0,
-        max_value=500.0,
-        step=5.0,
-        key="input_CurrentBasketValue",
-        help="Total cart value in rupees.",
-    )
-with col_u4:
-    sens_val = st.sidebar.number_input(
-        "Price Elasticity",
-        min_value=0.55,
-        max_value=1.55,
-        step=0.02,
-        key="input_CustomerPriceSensitivity",
-        help="Customer price sensitivity coefficient.",
-    )
+st.sidebar.markdown("### Shopper loyalty")
+purchases_val = st.sidebar.number_input(
+    "Orders to Date",
+    min_value=0,
+    max_value=30,
+    step=1,
+    key="input_PurchaseCount",
+    help="Customer's lifetime completed orders (governs loyalty tier).",
+)
+recency_val = st.sidebar.number_input(
+    "Recency (Days)",
+    min_value=0,
+    max_value=180,
+    step=1,
+    key="input_RecencyDays",
+    help="Days since previous order.",
+)
+basket_val = st.sidebar.number_input(
+    "Basket Value (₹)",
+    min_value=20.0,
+    max_value=500.0,
+    step=5.0,
+    key="input_CurrentBasketValue",
+    help="Total cart value in rupees.",
+)
+sens_val = st.sidebar.number_input(
+    "Price Elasticity",
+    min_value=0.55,
+    max_value=1.55,
+    step=0.02,
+    key="input_CustomerPriceSensitivity",
+    help="Customer price sensitivity coefficient.",
+)
 
 reg_cutoff_val = int(st.session_state.get("guardrail_reg_cutoff", DEFAULT_REGULAR_CUTOFF))
 loyal_cutoff_val = int(st.session_state.get("guardrail_loyal_cutoff", DEFAULT_LOYAL_CUTOFF))
@@ -1050,7 +896,7 @@ with st.sidebar.expander("Cost Price Override"):
     )
     st.button("Reset Inputs to Defaults", on_click=reset_situation_inputs, use_container_width=True)
 
-st.sidebar.markdown("### 🛡️ Guardrail Rules")
+st.sidebar.markdown("### Guardrail rules")
 margin_floor_slider = st.sidebar.slider(
     "Unit Margin Floor (₹)",
     min_value=0.0,
@@ -1060,23 +906,20 @@ margin_floor_slider = st.sidebar.slider(
     help="Discounts yielding margin below this floor are strictly blocked.",
 )
 
-col_g1, col_g2 = st.sidebar.columns(2)
-with col_g1:
-    reg_cutoff_input = st.number_input(
-        "Regular cutoff",
-        min_value=1,
-        max_value=15,
-        step=1,
-        key="guardrail_reg_cutoff",
-    )
-with col_g2:
-    loyal_cutoff_input = st.number_input(
-        "Loyal cutoff",
-        min_value=2,
-        max_value=25,
-        step=1,
-        key="guardrail_loyal_cutoff",
-    )
+reg_cutoff_input = st.sidebar.number_input(
+    "Regular tier cutoff",
+    min_value=1,
+    max_value=15,
+    step=1,
+    key="guardrail_reg_cutoff",
+)
+loyal_cutoff_input = st.sidebar.number_input(
+    "Loyal tier cutoff",
+    min_value=2,
+    max_value=25,
+    step=1,
+    key="guardrail_loyal_cutoff",
+)
 
 if reg_cutoff_input >= loyal_cutoff_input:
     st.sidebar.error("Invalid rule: 'Regular' cutoff must be strictly less than 'Loyal'.")
@@ -1125,19 +968,19 @@ rec_result = recommend(
 # PAGE 1: 🏠 STORE OVERVIEW & CATALOG
 # ===========================================================================
 
-if nav_selection == "🏠 Store Overview & Catalog":
-    # Hero Callout Card (SmartBiz Style)
+if nav_selection == "Store Overview & Catalog":
+    # Hero callout
     st.markdown(
         """
-        <div class="smartbiz-hero">
+        <div class="portal-hero">
             <h1 style="margin: 0 0 10px 0;">Build & Scale Your Store with AI Pricing</h1>
             <p style="margin: 0 0 20px 0;">
                 Live contextual reinforcement learning dynamically balances margin protection and purchase conversion across all SKU categories.
             </p>
             <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-                <span style="background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 9999px; font-weight: 700; font-size: 14px;">⚡ LinUCB Active</span>
-                <span style="background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 9999px; font-weight: 700; font-size: 14px;">🛡️ 100% Margin Floor Enforced</span>
-                <span style="background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 9999px; font-weight: 700; font-size: 14px;">📈 24.3% Conversion Rate</span>
+                <span style="background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 9999px; font-weight: 700; font-size: 14px;">LinUCB active</span>
+                <span style="background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 9999px; font-weight: 700; font-size: 14px;">Margin floor enforced</span>
+                <span style="background: rgba(255,255,255,0.15); padding: 8px 16px; border-radius: 9999px; font-weight: 700; font-size: 14px;">24.3% conversion rate</span>
             </div>
         </div>
         """,
@@ -1158,11 +1001,11 @@ if nav_selection == "🏠 Store Overview & Catalog":
     st.markdown("<div style='height: 14px;'></div>", unsafe_allow_html=True)
 
     # Middle Section: Revenue Trendline + Low Stock Alerts
-    col_dash_left, col_dash_right = st.columns([2, 1])
+    col_dash_left, col_dash_right = st.columns([1.65, 1])
 
     with col_dash_left:
         with st.container(border=True):
-            st.markdown("### 📈 Revenue & Cumulative Profit Trend")
+            st.markdown("### Revenue & cumulative profit trend")
             st.caption("20,000-round progression across LinUCB and benchmark policies.")
 
             dash_data = load_dashboard_assets()
@@ -1190,13 +1033,14 @@ if nav_selection == "🏠 Store Overview & Catalog":
                 ))
 
                 fig_trend.update_layout(
-                    height=290,
-                    margin=dict(l=10, r=10, t=10, b=25),
+                    height=340,
+                    margin=dict(l=44, r=22, t=28, b=42),
                     plot_bgcolor="#FFFFFF",
                     paper_bgcolor="#FFFFFF",
                     xaxis=dict(title="Round Number", showgrid=True, gridcolor="#F1F5F9"),
                     yaxis=dict(title="Cumulative Profit (₹)", showgrid=True, gridcolor="#F1F5F9"),
-                    legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+                    legend=dict(orientation="h", yanchor="bottom", y=1.05, xanchor="left", x=0),
+                    font=dict(color="#334E68"),
                 )
                 st.plotly_chart(fig_trend, use_container_width=True)
             else:
@@ -1204,7 +1048,7 @@ if nav_selection == "🏠 Store Overview & Catalog":
 
     with col_dash_right:
         with st.container(border=True):
-            st.markdown("### ⚠️ Inventory & Margin Watchlist")
+            st.markdown("### Inventory & margin watchlist")
             st.caption("Live alerts across active store SKU categories.")
 
             st.markdown(
@@ -1247,7 +1091,7 @@ if nav_selection == "🏠 Store Overview & Catalog":
     col_g_left, col_g_right = st.columns(2)
     with col_g_left:
         with st.container(border=True):
-            st.markdown("### 📊 Conversion Lift by Category")
+            st.markdown("### Conversion lift by category")
             st.caption("Empirical lift of contextual discount optimization vs static pricing.")
             cat_df = pd.DataFrame({
                 "Category": ["Electronics", "Furniture", "Clothing", "Toys", "Groceries"],
@@ -1259,8 +1103,8 @@ if nav_selection == "🏠 Store Overview & Catalog":
             fig_cat.add_trace(go.Bar(x=cat_df["Category"], y=cat_df["LinUCB Dynamic (%)"], name="LinUCB Optimized", marker_color="#00A896"))
             fig_cat.update_layout(
                 barmode="group",
-                height=260,
-                margin=dict(l=10, r=10, t=10, b=20),
+                height=285,
+                margin=dict(l=44, r=20, t=20, b=35),
                 plot_bgcolor="#FFFFFF",
                 paper_bgcolor="#FFFFFF",
                 yaxis_title="Conversion Rate (%)",
@@ -1270,7 +1114,7 @@ if nav_selection == "🏠 Store Overview & Catalog":
 
     with col_g_right:
         with st.container(border=True):
-            st.markdown("### 🛡️ Customer Tier Margin Distribution")
+            st.markdown("### Customer tier margin distribution")
             st.caption("Distribution of transactions governed by loyalty discount ceilings.")
             tier_df = pd.DataFrame({
                 "Tier": ["New Shoppers (0-5% Max)", "Regular Customers (5-15% Max)", "Loyal Shoppers (10-20% Max)"],
@@ -1279,8 +1123,8 @@ if nav_selection == "🏠 Store Overview & Catalog":
             })
             fig_pie = go.Figure(data=[go.Pie(labels=tier_df["Tier"], values=tier_df["Volume"], hole=.45, marker_colors=tier_df["Color"])])
             fig_pie.update_layout(
-                height=260,
-                margin=dict(l=10, r=10, t=10, b=20),
+                height=285,
+                margin=dict(l=20, r=20, t=20, b=45),
                 paper_bgcolor="#FFFFFF",
                 legend=dict(orientation="h", yanchor="bottom", y=-0.15, xanchor="center", x=0.5),
             )
@@ -1290,7 +1134,7 @@ if nav_selection == "🏠 Store Overview & Catalog":
 
     # Featured Product Catalog with 16 SKUs, Filters, and Real Photos
     st.markdown("## 🏷️ Featured Store Catalog — 1-Click Discount Optimizer")
-    st.caption("Filter by category or search products, then click **'⚡ Optimize Discount'** on any product to instantly load its context into the pricing engine.")
+    st.caption("Filter by category or search products, then choose Analyze discount to load an item into the pricing engine.")
 
     col_fil1, col_fil2 = st.columns([1, 2])
     with col_fil1:
@@ -1353,7 +1197,7 @@ if nav_selection == "🏠 Store Overview & Catalog":
                             unsafe_allow_html=True,
                         )
                         st.button(
-                            f"⚡ Optimize Discount for {prod['category']}",
+                            f"Analyze {prod['category']} discount",
                             key=f"btn_opt_{prod['id']}",
                             use_container_width=True,
                             on_click=load_product_into_simulator,
@@ -1365,9 +1209,11 @@ if nav_selection == "🏠 Store Overview & Catalog":
 # PAGE 2: 🎯 LIVE PRICING SIMULATOR
 # ===========================================================================
 
-elif nav_selection == "🎯 Live Pricing Simulator":
-    st.markdown("## 🎯 Live Contextual Pricing Recommendation")
-    st.caption("Real-time LinUCB scoring engine evaluating all discount options under loyalty and margin constraints.")
+elif nav_selection == "Live Pricing Simulator":
+    render_page_heading(
+        "Live decision", "Contextual pricing recommendation",
+        "Real-time LinUCB scoring across eligible discounts, constrained by loyalty and margin rules.",
+    )
 
     # Top Recommendation Banner
     if rec_result.chosen_discount is not None:
@@ -1416,7 +1262,7 @@ elif nav_selection == "🎯 Live Pricing Simulator":
 
     with col_plot_left:
         with st.container(border=True):
-            st.markdown("### 📊 UCB Score Decomposition by Discount Arm")
+            st.markdown("### UCB score by discount arm")
             st.caption("Point estimate (exploitation) with upper whisker showing uncertainty bonus (exploration).")
 
             fig_ucb = go.Figure()
@@ -1452,7 +1298,7 @@ elif nav_selection == "🎯 Live Pricing Simulator":
 
     with col_plot_right:
         with st.container(border=True):
-            st.markdown("### 🧠 Decision Logic Explanation")
+            st.markdown("### Decision logic")
             st.caption("How LinUCB weighed exploitation vs exploration:")
             st.markdown(
                 f"""
@@ -1476,7 +1322,7 @@ elif nav_selection == "🎯 Live Pricing Simulator":
     st.markdown("<div style='height: 14px;'></div>", unsafe_allow_html=True)
 
     # Detailed Arms Diagnostic Matrix
-    st.markdown("### 📋 Detailed Arms Diagnostic Matrix")
+    st.markdown("### Detailed arm diagnostics")
     diag_rows = []
     for a in rec_result.arms_table:
         diag_rows.append({
@@ -1497,9 +1343,11 @@ elif nav_selection == "🎯 Live Pricing Simulator":
 # PAGE 3: 🔮 MARKET SENSITIVITY & WHAT-IF LAB
 # ===========================================================================
 
-elif nav_selection == "🔮 Market Sensitivity & What-If Lab":
-    st.markdown("## 🔮 Market Sensitivity & What-If Counterfactual Lab")
-    st.caption("Simulate macroeconomic competitor price shocks, inventory depletion, and seasonal shifts.")
+elif nav_selection == "Market Sensitivity & What-If Lab":
+    render_page_heading(
+        "Scenario planning", "Market sensitivity lab",
+        "Compare competitor price shocks, inventory changes, and seasonal shifts before committing a discount.",
+    )
 
     col_w1, col_w2, col_w3 = st.columns(3)
     with col_w1:
@@ -1533,12 +1381,12 @@ elif nav_selection == "🔮 Market Sensitivity & What-If Lab":
 
     with col_s2:
         with st.container(border=True):
-            st.markdown("### ⚡ What-If Scenario")
+            st.markdown("### What-if scenario")
             st.write(f"**Recommended Discount:** {scen_rec.chosen_discount}%")
             st.write(f"**Effective Price:** {fmt_rupees(scen_rec.discounted_price)}")
             st.write(f"**Post-Discount Margin:** {fmt_rupees(scen_rec.unit_margin_after_discount)}")
 
-    st.markdown("### 📈 Continuous Sensitivity Response Curves")
+    st.markdown("### Sensitivity response curves")
     sens_var = st.selectbox("Select Sweep Parameter", ["CompetitorPricing", "InventoryLevel", "Seasonality"])
     curve_data = compute_response_curve(current_inputs, sens_var, rules=active_rules, model=model)
 
@@ -1566,60 +1414,111 @@ elif nav_selection == "🔮 Market Sensitivity & What-If Lab":
 # PAGE 4: 🛡️ MARGIN GUARDRAILS STUDIO
 # ===========================================================================
 
-elif nav_selection == "🛡️ Margin Guardrails Studio":
-    st.markdown("## 🛡️ Commercial Margin Guardrails Studio")
-    st.caption("Inspect and audit how loyalty tier discount ceilings and strict margin floors prevent financial loss.")
+elif nav_selection == "Margin Guardrails Studio":
+    render_page_heading(
+        "Safety controls", "Commercial margin guardrails",
+        "Inspect how loyalty discount menus and the margin floor filter unsafe offers before the model makes a recommendation.",
+    )
+
+    eligible_count = len(rec_result.eligible_discounts)
+    blocked_count = len(ACTIONS) - eligible_count
+    margin_headroom = max(0.0, rec_result.unit_margin_after_discount - active_rules.margin_floor)
+    guardrail_kpis = st.columns(4)
+    guardrail_kpis[0].metric("Current shopper tier", rec_result.tier_for_rules)
+    guardrail_kpis[1].metric("Eligible discounts", f"{eligible_count} of {len(ACTIONS)}")
+    guardrail_kpis[2].metric("Blocked discounts", str(blocked_count))
+    guardrail_kpis[3].metric("Recommended margin headroom", fmt_rupees(margin_headroom))
+
+    st.markdown("<div style='height: 0.6rem'></div>", unsafe_allow_html=True)
 
     col_g_c1, col_g_c2 = st.columns(2)
     with col_g_c1:
-        with st.container(border=True):
-            st.markdown("### 👥 Customer Loyalty Tier Policy")
-            st.markdown(
-                f"""
-                - **New Customers (0 to {active_rules.regular_cutoff-1} orders):** Maximum allowed discount is **5%**.
-                - **Regular Customers ({active_rules.regular_cutoff} to {active_rules.loyal_cutoff-1} orders):** Allowed discounts **5%, 10%, 15%**.
-                - **Loyal Customers ({active_rules.loyal_cutoff}+ orders):** Allowed discounts **10%, 15%, 20%**.
-                """
-            )
+        st.markdown('<div class="insight-card insight-card--blue">', unsafe_allow_html=True)
+        st.markdown("### Loyalty discount menu")
+        st.caption("The shopper can only be offered discounts assigned to their current tier.")
+        st.markdown(
+            f"""
+            - **New customers (0 to {active_rules.regular_cutoff - 1} orders):** 0% or 5%
+            - **Regular customers ({active_rules.regular_cutoff} to {active_rules.loyal_cutoff - 1} orders):** 5%, 10%, or 15%
+            - **Loyal customers ({active_rules.loyal_cutoff}+ orders):** 10%, 15%, or 20%
+            """
+        )
+        st.markdown("</div>", unsafe_allow_html=True)
     with col_g_c2:
-        with st.container(border=True):
-            st.markdown("### 💰 Absolute Unit Margin Floor")
-            st.markdown(
-                f"""
-                - **Active Floor Setting:** {fmt_rupees(active_rules.margin_floor)}
-                - **Rule Logic:** $\\text{{SellingPrice}} - \\text{{CostPrice}} \\ge \\text{{Floor}}$
-                - **Status:** Guaranteed 100% compliant across all evaluated simulation rounds.
-                """
-            )
+        st.markdown('<div class="insight-card insight-card--amber">', unsafe_allow_html=True)
+        st.markdown("### Margin protection rule")
+        st.caption("An offer is removed if it drops the item's post-discount unit margin below the chosen floor.")
+        st.markdown(
+            f"""
+            - **Active margin floor:** {fmt_rupees(active_rules.margin_floor)}
+            - **Cost basis used:** {fmt_rupees(rec_result.raw_context['CostPrice'])}
+            - **Recommended post-discount margin:** {fmt_rupees(rec_result.unit_margin_after_discount)}
+            - **Rule:** selling price minus cost price must remain at or above the floor.
+            """
+        )
+        st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown("### 📋 Per-Arm Compliance Matrix")
+    st.markdown("### Per-arm compliance matrix")
+    st.markdown('<p class="table-note">Teal rows are available for scoring. Amber rows are blocked by the loyalty menu; red rows would fail the margin floor.</p>', unsafe_allow_html=True)
     g_full_rows = []
     for a in rec_result.arms_table:
-        passes_tier = "✅ Passes" if a.discount in TIER_DISCOUNTS[rec_result.tier_for_rules] else f"❌ Blocked (Tier restricts to {TIER_DISCOUNTS[rec_result.tier_for_rules]}%)"
+        tier_ok = a.discount in TIER_DISCOUNTS[rec_result.tier_for_rules]
+        passes_tier = "Allowed" if tier_ok else "Blocked by tier"
         margin_diff = a.unit_margin_after_discount - active_rules.margin_floor
-        passes_margin = (
-            f"✅ Passes (Margin {fmt_rupees(a.unit_margin_after_discount)} ≥ Floor {fmt_rupees(active_rules.margin_floor)})"
-            if margin_diff >= 0
-            else f"❌ Blocked (Margin {fmt_rupees(a.unit_margin_after_discount)} < Floor {fmt_rupees(active_rules.margin_floor)})"
-        )
+        margin_ok = margin_diff >= 0
+        passes_margin = "Passes" if margin_ok else "Blocked by floor"
         g_full_rows.append({
             "Discount Arm": f"{a.discount}%",
             "Selling Price": fmt_rupees(a.selling_price),
             "Unit Margin": fmt_rupees(a.unit_margin_after_discount),
             "Tier Compliance": passes_tier,
             "Margin Compliance": passes_margin,
-            "Final Eligibility": "🟢 Eligible" if a.score is not None else "⛔ Disqualified",
+            "Final Eligibility": "Eligible" if a.score is not None else "Disqualified",
         })
-    st.table(pd.DataFrame(g_full_rows))
+    guardrail_df = pd.DataFrame(g_full_rows)
+
+    def style_guardrail_table(row: pd.Series) -> list[str]:
+        if row["Final Eligibility"] == "Eligible":
+            color = "background-color: #E6FFFA; color: #0F4C45; font-weight: 600;"
+        elif row["Margin Compliance"] == "Blocked by floor":
+            color = "background-color: #FEE2E2; color: #991B1B;"
+        else:
+            color = "background-color: #FFF7E6; color: #9A5B00;"
+        return [color] * len(row)
+
+    st.dataframe(
+        guardrail_df.style.apply(style_guardrail_table, axis=1),
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "Discount Arm": st.column_config.TextColumn("Discount", width="small"),
+            "Selling Price": st.column_config.TextColumn("Selling price", width="small"),
+            "Unit Margin": st.column_config.TextColumn("Unit margin", width="small"),
+            "Tier Compliance": st.column_config.TextColumn("Tier rule", width="medium"),
+            "Margin Compliance": st.column_config.TextColumn("Margin floor", width="medium"),
+            "Final Eligibility": st.column_config.TextColumn("Decision", width="small"),
+        },
+    )
+
+    with st.expander("How the guardrails protect this recommendation"):
+        st.markdown(
+            f"""
+            The current shopper is in the **{rec_result.tier_for_rules}** tier, so the loyalty policy narrows the action menu first.
+            The margin floor then checks the remaining actions using the active cost basis. Only after both checks does LinUCB score each safe option.
+            This prevents below-floor markdowns even when a larger discount would otherwise receive a high model score.
+            """
+        )
 
 
 # ===========================================================================
 # PAGE 5: 📊 POLICY PERFORMANCE & ROI AUDITS
 # ===========================================================================
 
-elif nav_selection == "📊 Policy Performance & ROI Audits":
-    st.markdown("## 📊 Audited Policy Performance & Multi-Seed Benchmarks")
-    st.caption("Historical simulation ledgers across 10 random seeds and 20,000 rounds per run. No synthetic shortcuts.")
+elif nav_selection == "Policy Performance & ROI Audits":
+    render_page_heading(
+        "Evaluation", "Policy performance and ROI audits",
+        "Compare policies on the same pre-generated customer streams across ten random seeds.",
+    )
 
     dash_data = load_dashboard_assets()
 
@@ -1656,12 +1555,14 @@ elif nav_selection == "📊 Policy Performance & ROI Audits":
             ))
 
         fig_cum.update_layout(
-            height=360,
+            height=430,
+            margin=dict(l=58, r=28, t=58, b=56),
             xaxis_title="Round Number",
             yaxis_title="Cumulative Profit (₹)",
             plot_bgcolor="#FFFFFF",
             paper_bgcolor="#FFFFFF",
-            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+            font=dict(color="#334E68"),
+            legend=dict(orientation="h", yanchor="bottom", y=1.08, xanchor="left", x=0),
         )
         st.plotly_chart(fig_cum, use_container_width=True)
 
@@ -1669,71 +1570,79 @@ elif nav_selection == "📊 Policy Performance & ROI Audits":
         mode_toggle = st.radio("Select Evaluation Mode:", ["Online Mode (20,000 Rounds)", "Frozen Mode (5,000 Held-Out Rounds)"], horizontal=True)
 
         if "Online" in mode_toggle:
-            st.dataframe(dash_data["comparison_online"], use_container_width=True, hide_index=True)
+            benchmark_df = dash_data["comparison_online"]
         else:
-            st.dataframe(dash_data["comparison_frozen"], use_container_width=True, hide_index=True)
+            benchmark_df = dash_data["comparison_frozen"]
+
+        def style_benchmark_table(row: pd.Series) -> list[str]:
+            policy = str(row.iloc[0])
+            if policy == "LinUCB":
+                color = "background-color: #E6FFFA; color: #0F4C45; font-weight: 650;"
+            elif policy == "Fixed 10%":
+                color = "background-color: #FFF7E6; color: #8A4B00;"
+            elif policy == "Thompson Sampling":
+                color = "background-color: #EFF6FF; color: #1E429F;"
+            else:
+                color = "background-color: #FFFFFF; color: #243B53;"
+            return [color] * len(row)
+
+        st.dataframe(
+            benchmark_df.style.apply(style_benchmark_table, axis=1),
+            use_container_width=True,
+            hide_index=True,
+            height=270,
+        )
 
 
 # ===========================================================================
 # PAGE 6: 📘 KNOWLEDGE BLOG & ARCHITECTURE
 # ===========================================================================
 
-elif nav_selection == "📘 Knowledge Blog & Architecture":
-    st.markdown("## 📘 SmartCommerce Knowledge Blog & Technical Guide")
-    st.caption("Comprehensive operational articles explaining how the AI dynamic pricing engine works under the hood.")
-
-    st.markdown(
-        """
-        <div style="background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
-            <span style="background: #0C232A; color: #FF9900; padding: 4px 10px; border-radius: 9999px; font-weight: 700; font-size: 13px;">MERCHANT GUIDE</span>
-            <h2 style="margin: 8px 0 8px 0; color: #0C232A;">Article 1: The Profit Paradox — Why Blanket Discounts Erode Value</h2>
-            <p style="color: #475569; font-size: 16px; line-height: 1.6;">
-                Most retail merchants default to blanket markdowns (e.g. 15% off everything). However, microeconomic analysis reveals that uniform discounting leads to massive profit leakage. High-intent shoppers convert regardless of discount, surrendering net margin, while elasticity-sensitive shoppers may require deeper cuts to purchase.
-            </p>
-            <p style="color: #0F172A; font-weight: 600; margin-bottom: 0;">
-                The Solution: Disjoint LinUCB estimates price elasticity per context in real time, personalizing discounts to maximize profit rather than blindly maximizing conversion.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+elif nav_selection == "Knowledge Blog & Architecture":
+    render_page_heading(
+        "Project guide", "How the pricing engine works",
+        "Open a topic below during your demo to explain the system at the right level of detail.",
     )
 
-    col_b1, col_b2 = st.columns(2)
-    with col_b1:
-        with st.container(border=True):
-            st.markdown("### 🧠 Article 2: How LinUCB Works")
-            st.caption("Active Reinforcement Learning & Upper Confidence Bounds")
-            st.markdown(
-                r"""
-                - **Point Estimate (Exploitation):** Fits a linear model predicting profit: $x_t^T \hat{\theta}_a$.
-                - **Uncertainty Bonus (Exploration):** Measures confidence bound: $\alpha \sqrt{x_t^T A_a^{-1} x_t}$.
-                - **Sherman-Morrison Rank-1 Update:** Maintains $A_a^{-1}$ in $\mathcal{O}(d^2)$ time instead of $\mathcal{O}(d^3)$, enabling sub-millisecond real-time recommendations.
-                """
-            )
-    with col_b2:
-        with st.container(border=True):
-            st.markdown("### 🛡️ Article 3: Zero-Margin-Breach Guardrails")
-            st.caption("Why Soft Penalties Fail & How Hard Filters Win")
-            st.markdown(
-                r"""
-                - **The Failure of Soft Rewards:** Penalizing below-cost sales via reward penalties destabilizes reinforcement learning, causing policy collapse.
-                - **Programmatic Pre-Filtering:** Our envelope filters the action space before scoring:
-                  $$\text{SellingPrice}(a) - \text{CostPrice} \ge \text{Floor}$$
-                - **Result:** Exactly 100% compliance across 200,000 online rounds.
-                """
-            )
-
-    st.markdown("<div style='height: 14px;'></div>", unsafe_allow_html=True)
-
-    with st.container(border=True):
-        st.markdown("### 🔄 End-to-End Walkthrough: What Happens on Every Shopper Visit?")
+    with st.expander("Why a uniform discount can reduce profit", expanded=True):
         st.markdown(
             """
-            1. **Context Extraction:** When a customer views an item, the system collects catalogue price, competitor shelf price, inventory level, demand index, and customer order history.
-            2. **26-Dimensional Vectorization:** Continuous features are z-score standardized; categoricals are one-hot encoded.
-            3. **Guardrail Envelope:** Loyalty tier discount caps and unit margin floors filter the 5 arms `{0%, 5%, 10%, 15%, 20%}` down to an eligible subset.
-            4. **UCB Scoring & Selection:** LinUCB scores all eligible arms; the discount with the highest score is presented to the shopper.
-            5. **Conversion Simulation & Ledger Update:** Purchase outcomes are simulated via empirical logistic demand; transaction revenue, margin, and regret are recorded in the financial ledger.
+            A fixed markdown gives away margin to high-intent shoppers who may have purchased anyway, while still failing to help price-sensitive shoppers in the moments where an incentive matters.
+            The application instead evaluates the product, competitor, inventory, demand, promotion, region, season, and shopper context before selecting an eligible discount.
+            """
+        )
+
+    with st.expander("How LinUCB chooses a discount"):
+        st.markdown(
+            r"""
+            - **Point estimate:** predicts expected unit profit for a discount in a similar context: $x_t^T \hat{\theta}_a$.
+            - **Uncertainty bonus:** gives less-tested actions a fair chance: $\alpha \sqrt{x_t^T A_a^{-1} x_t}$.
+            - **Final decision:** the eligible discount with the highest combined score is selected.
+
+            The model is a contextual multi-armed bandit: it learns from outcomes over individual pricing decisions rather than planning a multi-step sequence.
+            """
+        )
+
+    with st.expander("How commercial guardrails work"):
+        st.markdown(
+            r"""
+            Before LinUCB scores anything, the guardrail layer filters the five actions `{0%, 5%, 10%, 15%, 20%}`.
+            Loyalty tiers define which discounts may be offered, and the unit-margin rule checks:
+
+            $$\text{Selling price} - \text{Cost price} \geq \text{Margin floor}$$
+
+            This makes guardrail compliance deterministic rather than hoping the learning model discovers it through a reward penalty.
+            """
+        )
+
+    with st.expander("End-to-end shopper visit walkthrough"):
+        st.markdown(
+            """
+            1. Product and shopper context is collected from the merchandising controls.
+            2. Numeric inputs are standardized and categorical inputs are encoded into the model feature vector.
+            3. Tier and margin guardrails remove unsafe discount options.
+            4. LinUCB scores each remaining discount using expected profit plus an uncertainty bonus.
+            5. The app displays the selected price, margin, diagnostics, and scenario analysis.
             """
         )
 
@@ -1742,8 +1651,11 @@ elif nav_selection == "📘 Knowledge Blog & Architecture":
 # PAGE 7: ℹ️ MODEL ARCHITECTURE & TRANSPARENCY
 # ===========================================================================
 
-elif nav_selection == "ℹ️ Model Architecture & Transparency":
-    st.markdown("## ℹ️ Technical Architecture & Methodology")
+elif nav_selection == "Model Architecture & Transparency":
+    render_page_heading(
+        "Transparency", "Technical architecture and methodology",
+        "Reference notes on the data pipeline, guardrails, and trained recommendation model.",
+    )
     about_file = APP_DIR / "about_text.md"
     if about_file.exists():
         with open(about_file, "r", encoding="utf-8") as f:

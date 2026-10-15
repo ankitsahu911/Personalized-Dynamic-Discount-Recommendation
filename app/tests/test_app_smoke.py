@@ -39,13 +39,13 @@ def test_app_smoke_page_navigation():
     assert len(at.exception) == 0
 
     pages = [
-        "🏠 Store Overview & Catalog",
-        "🎯 Live Pricing Simulator",
-        "🔮 Market Sensitivity & What-If Lab",
-        "🛡️ Margin Guardrails Studio",
-        "📊 Policy Performance & ROI Audits",
-        "📘 Knowledge Blog & Architecture",
-        "ℹ️ Model Architecture & Transparency",
+        "Store Overview & Catalog",
+        "Live Pricing Simulator",
+        "Market Sensitivity & What-If Lab",
+        "Margin Guardrails Studio",
+        "Policy Performance & ROI Audits",
+        "Knowledge Blog & Architecture",
+        "Model Architecture & Transparency",
     ]
     for page in pages:
         at.radio(key="nav_page").set_value(page)
@@ -66,5 +66,5 @@ def test_app_smoke_product_catalog_click():
         btn.click()
         at.run()
         assert len(at.exception) == 0
-        assert at.radio(key="nav_page").value == "🎯 Live Pricing Simulator"
+        assert at.radio(key="nav_page").value == "Live Pricing Simulator"
         assert at.sidebar.number_input(key="input_Price").value == 85.0
